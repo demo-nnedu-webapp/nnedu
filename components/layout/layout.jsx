@@ -9,7 +9,7 @@ export default function WebLayout({ children }) {
     <>
       <Layout className="flex items-center justify-center">
         <WebNavigation />
-        <StyledContent>{children}</StyledContent>
+        <StyledContent className="mt-16">{children}</StyledContent>
         <WebFooter />
       </Layout>
     </>
