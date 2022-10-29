@@ -32,7 +32,7 @@ export const WebNavigation = () => {
 
   return (
     <>
-      <StyledHeader className="shadow-md z-50">
+      <StyledHeader className="shadow-md fixed top-0 left-0 z-50">
         <div className="w-full flex items-center justify-between">
           <div>
             <Logo width={180} height={50} />
@@ -59,8 +59,9 @@ export const WebNavigation = () => {
         {openMobileMenu && (
           <>
             <div
-            //   ref={mobileMenuRef}
-              className="w-full lg:hidden h-auto bg-[#1f1839] border-4 transition-[.5s] border-[#dec918] absolute top-[4.1rem] left-0"
+              //   ref={mobileMenuRef}
+              className="w-full h-auto lg:hidden z-50 fixed bg-[#1f1839] 
+              border-4 transition-[.5s] border-[#dec918] top-[4.1rem] left-0"
             >
               <div className="flex flex-col gap-4 px-6 p-4">
                 <Navitems />
