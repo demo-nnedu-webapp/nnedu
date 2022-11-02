@@ -13,7 +13,7 @@ function Profile() {
         </Head>
       </div>
       <DashboardLayout>
-        hello Profile here
+        <div className="bg-[#1f1839] w-full p-4"></div>
       </DashboardLayout>
     </>
   );
