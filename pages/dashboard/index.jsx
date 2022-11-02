@@ -13,7 +13,7 @@ function Dashboard() {
         </Head>
       </div>
       <DashboardLayout>
-        <div className="text-black">helo Dashboard</div>
+        <div className="bg-[#1f1839] w-full p-4"></div>
       </DashboardLayout>
     </>
   );
