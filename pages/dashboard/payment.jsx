@@ -4,91 +4,6 @@ import React, { useState } from "react";
 import DashboardLayout from "../../components/layout/dashboardLayout";
 
 function Payment() {
-  const initialState = false;
-  const [refresh, SetRefresh] = useState(initialState);
-  const [transactions, SetTransactions] = useState("0.00");
-
-  const getSchoolTransactions = () => {
-    try {
-      axios
-        .get(`https://api.paystack.co/transaction`, {
-          headers: {
-            Authorization: `Bearer sk_test_80eaa41b94f3664ac379e240498f3824a2bf4b18`,
-          },
-        })
-        .then((res) => {
-          console.log(res.data.data[0].id);
-          SetTransactions(res.data.data[0].amount);
-        })
-        .catch((err) => {
-          if (err.response) {
-            console.log(err.response.data);
-          }
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const toggleRefresh = () => {
-    SetTransactions(transactions);
-    getSchoolTransactions();
-  };
-
-  const statuses = [
-    {
-      icon: (
-        <Icon
-          icon="ant-design:account-book-filled"
-          color="white"
-          width="32"
-          height="32"
-        />
-      ),
-      bgColor: "bg-green-500",
-      label: "Book Fees",
-      price: transactions,
-    },
-    {
-      icon: (
-        <Icon
-          icon="mdi:contactless-payment-circle"
-          color="white"
-          width="32"
-          height="32"
-        />
-      ),
-      bgColor: "bg-red-500",
-      label: "School Fees",
-      price: transactions,
-    },
-    {
-      icon: (
-        <Icon
-          icon="icon-park-solid:flash-payment"
-          color="white"
-          width="32"
-          height="32"
-        />
-      ),
-      bgColor: "bg-blue-500",
-      label: "Logistics Levy",
-      price: transactions,
-    },
-    {
-      icon: (
-        <Icon
-          icon="heroicons-solid:cube-transparent"
-          color="white"
-          width="32"
-          height="32"
-        />
-      ),
-      bgColor: "bg-purple-500",
-      label: "PTA Levy",
-      price: transactions,
-    },
-  ];
 
   return (
     <>
@@ -100,7 +15,10 @@ function Payment() {
         </Head>
       </div>
       <DashboardLayout>
-        <div className="bg-[#1f1839] w-full p-4"></div>
+        <h2 className="font-bold text-2xl font-mono text-[#1f1839]">Payment</h2>
+        <div className="bg-[#1f1839] w-full p-4">
+          <div className="w-full flex justify-between"></div>
+        </div>
       </DashboardLayout>
     </>
   );

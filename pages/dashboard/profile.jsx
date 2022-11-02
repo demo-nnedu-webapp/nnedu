@@ -13,7 +13,10 @@ function Profile() {
         </Head>
       </div>
       <DashboardLayout>
-        <div className="bg-[#1f1839] w-full p-4"></div>
+      <h2 className="font-bold text-2xl font-mono text-[#1f1839]">Profile</h2>
+        <div className="bg-[#1f1839] w-full p-4">
+          <div className="w-full flex justify-between"></div>
+        </div>
       </DashboardLayout>
     </>
   );
