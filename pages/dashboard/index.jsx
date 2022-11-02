@@ -12,7 +12,9 @@ function Dashboard() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
       </div>
-      <DashboardLayout></DashboardLayout>
+      <DashboardLayout>
+        <div className="text-black">helo Dashboard</div>
+      </DashboardLayout>
     </>
   );
 }
