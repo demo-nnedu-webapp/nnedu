@@ -3,6 +3,7 @@ import { Logo } from "../logo/Logo";
 import { StyledHeader } from "../../styles/styled";
 import { Navitems } from "./navigationItems/navItems";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 
 export const WebNavigation = () => {
   const initialState = false;
@@ -40,6 +41,7 @@ export const WebNavigation = () => {
           <div className="flex gap-4 items-center">
             <div className="hidden lg:flex items-center gap-4">
               <Navitems />
+              <Link href="/dashboard">Dashboard</Link>
             </div>
             <button
               className="lg:hidden flex"
