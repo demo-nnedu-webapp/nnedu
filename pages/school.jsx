@@ -17,17 +17,17 @@ export default function SelectSchool() {
           {/* heading and layout changer */}
           <div className="w-full max-w-[72rem] p-4 bg-primary mt-6">
             <div className="flex items-center justify-between w-full">
-              <h3 className="text-white font-inter capitalize tracking-[0.09em] leading-[21.78px] font-bold text-lg">
-                Select{" "}
-                <span className="font-normal font-montserrat text-base">
-                  NNSS school of choice
+              <h3 className="font-inter capitalize tracking-[0.06em] text-secondary leading-[21.78px] font-bold text-lg">
+                Select NNSS{" "}
+                <span className="font-normal lowercase text-white tracking-normal font-montserrat text-base">
+                  school of choice
                 </span>
               </h3>
 
               <DefaultButton className="text-white flex items-center gap-x-2 font-montserrat text-base">
                 <Icon
                   icon="ant-design:layout-filled"
-                  color="white"
+                  className="text-secondary"
                   width="30"
                   height="30"
                 />
