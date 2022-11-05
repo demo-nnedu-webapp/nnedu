@@ -42,9 +42,8 @@ export const WebNavigation = ({ viewHeaderonAuth }) => {
             ""
           ) : (
             <div className="flex gap-4 items-center">
-              <div className="hidden lg:flex items-center gap-4">
+              <div className="hidden lg:flex items-center gap-x-5">
                 <Navitems />
-                <Link href="/school">Schools Login</Link>
               </div>
               <button
                 className="lg:hidden flex"
