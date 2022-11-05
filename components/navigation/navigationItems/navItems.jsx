@@ -23,7 +23,7 @@ export const Navitems = () => {
       ],
     },
     {
-      link: "#",
+      link: "/school",
       label: "schools",
       subItems: [
         {
@@ -60,12 +60,20 @@ export const Navitems = () => {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <>
       {items.map((i, index) => {
         return (
           <Link href={i.link} key={index} passHref legacyBehavior>
-            <a className="text-white lg:text-[#1f1839] capitalize my-2 font-medium hover:text-[#dec918] active:text-[#dec918]">
+            <a
+              className={`${
+                router.asPath === i.link
+                  ? "text-[#dec918] hover:underline font-medium"
+                  : "text-[#1f1839]"
+              } "font-inter font-normal capitalize my-2 lg:my-0 tracking-[0.06em] hover:text-[#dec918]`}
+            >
               {i.label}
             </a>
           </Link>
@@ -123,13 +131,12 @@ export const DashboardNavItems = () => {
   return (
     <>
       {DashboardItems.map((i, index) => {
-        console.log(i.link);
         return (
           <Link href={i.link} key={index} passHref legacyBehavior>
             <a
               className={`${
                 router.asPath === i.link ? "text-[#dec918]" : "text-white"
-              } flex gap-3 capitalize first:mt-0 mt-4 text-white items-center font-medium hover:text-[#dec918]`}
+              } flex gap-x-2 capitalize font-inter tracking-[0.07em] first:mt-0 mt-4 text-white items-center hover:text-[#dec918]`}
               onClick={() => dispatch(hideSidebar())}
             >
               {i.icon}
