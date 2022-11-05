@@ -5,7 +5,7 @@ import { Navitems } from "./navigationItems/navItems";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
-export const WebNavigation = () => {
+export const WebNavigation = ({ viewHeaderonAuth }) => {
   const initialState = false;
   const [openMobileMenu, setOpenMobileMenu] = useState(initialState);
 
@@ -38,23 +38,27 @@ export const WebNavigation = () => {
           <div>
             <Logo width={180} height={50} />
           </div>
-          <div className="flex gap-4 items-center">
-            <div className="hidden lg:flex items-center gap-4">
-              <Navitems />
-              <Link href="/dashboard">Dashboard</Link>
+          {viewHeaderonAuth ? (
+            ""
+          ) : (
+            <div className="flex gap-4 items-center">
+              <div className="hidden lg:flex items-center gap-4">
+                <Navitems />
+                <Link href="/school">Schools Login</Link>
+              </div>
+              <button
+                className="lg:hidden flex"
+                onClick={() => toggleMobileMenu()}
+              >
+                <Icon
+                  icon="ci:menu-alt-02"
+                  color="#1f1839"
+                  width="32"
+                  height="32"
+                />
+              </button>
             </div>
-            <button
-              className="lg:hidden flex"
-              onClick={() => toggleMobileMenu()}
-            >
-              <Icon
-                icon="ci:menu-alt-02"
-                color="#1f1839"
-                width="32"
-                height="32"
-              />
-            </button>
-          </div>
+          )}
         </div>
       </StyledHeader>
       <>
