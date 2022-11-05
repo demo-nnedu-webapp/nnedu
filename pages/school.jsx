@@ -44,13 +44,19 @@ export default function SelectSchool() {
             <div className="grid grid-cols-2 w-full gap-6 lg:gap-4 md:grid-cols-3 justify-items-center place-items-center lg:grid-cols-4">
               {schoolData.map((i, index) => {
                 return (
-                  <Link href="#" key={index} passhref legacyBehavior>
+                  <Link
+                    href={`${i.location}/signin`}
+                    key={index}
+                    passhref
+                    legacyBehavior
+                  >
                     <a className="flex flex-col items-center">
                       <div>
                         <Image
                           src={i.logo}
                           layout="intrinsic"
                           alt="schoollogo"
+                          className="w-auto h-auto"
                           priority={100}
                         />
                       </div>
@@ -58,7 +64,7 @@ export default function SelectSchool() {
                         <h3 className="text-center font-bold font-inter text-2xl text-primary tracking-[0.06em]">
                           {i.name}
                         </h3>
-                        <p className="text-center uppercase tracking-[0.09em] text-primary text-base">
+                        <p className="text-center font-montserrat uppercase tracking-[0.09em] text-primary text-base">
                           {i.location}
                         </p>
                       </div>
