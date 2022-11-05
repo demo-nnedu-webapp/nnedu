@@ -19,7 +19,7 @@ export default function SelectSchool() {
           {/* heading and layout changer */}
           <div className="w-full max-w-[72rem] p-4 bg-primary mt-6">
             <div className="flex items-center justify-between w-full">
-              <h3 className="font-inter w-full max-w-[11rem] leading-5 lg:w-auto capitalize tracking-[0.06em] text-secondary lg:leading-[21.78px] font-bold text-lg">
+              <h3 className="font-inter w-full max-w-[11rem] leading-5 lg:w-auto lg:max-w-fit capitalize tracking-[0.06em] text-secondary lg:leading-[21.78px] font-bold text-lg">
                 Select NNSS{" "}
                 <span className="font-normal lowercase text-white tracking-normal font-montserrat text-base">
                   school of choice
