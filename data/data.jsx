@@ -2,47 +2,47 @@ import Schools from "../assets/schools.svg";
 
 export const schoolData = [
   {
-    location: "Ojo",
+    location: "ojo",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Abeokuta",
+    location: "abeokuta",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Calabar",
+    location: "calabar",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Porthacort",
+    location: "porthacort",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Ogbomosho",
+    location: "ogbomosho",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Imeri",
+    location: "imeri",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Kuje",
+    location: "kuje",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Okura",
+    location: "okura",
     logo: Schools,
     name: "NNSS",
   },
   {
-    location: "Ikot-Ntuen",
+    location: "ikot-Ntuen",
     logo: Schools,
     name: "NNMS",
   },
