@@ -1,8 +1,10 @@
 import { Icon } from "@iconify/react";
 import Head from "next/head";
+import Image from "next/legacy/image";
+import Link from "next/link";
 import { DefaultButton } from "../components/customButton/defaultButton";
 import WebLayout from "../components/layout/layout";
-import { SliderHome } from "../components/slider/sliderHome";
+import { schoolData } from "../data/data";
 
 export default function SelectSchool() {
   return (
@@ -17,7 +19,7 @@ export default function SelectSchool() {
           {/* heading and layout changer */}
           <div className="w-full max-w-[72rem] p-4 bg-primary mt-6">
             <div className="flex items-center justify-between w-full">
-              <h3 className="font-inter capitalize tracking-[0.06em] text-secondary leading-[21.78px] font-bold text-lg">
+              <h3 className="font-inter w-full max-w-[11rem] leading-5 lg:w-auto capitalize tracking-[0.06em] text-secondary lg:leading-[21.78px] font-bold text-lg">
                 Select NNSS{" "}
                 <span className="font-normal lowercase text-white tracking-normal font-montserrat text-base">
                   school of choice
@@ -31,14 +33,47 @@ export default function SelectSchool() {
                   width="30"
                   height="30"
                 />
-                Change layout
+                <span className="hidden lg:flex">Change layout</span>
               </DefaultButton>
             </div>
           </div>
           {/* heading and layout changer */}
 
           {/* Select schoools */}
-          <div className="w-full max-w-[72rem] p-4 bg-yellow-500"></div>
+          <div className="w-full max-w-[72rem] flex items-center justify-center p-4">
+            <div className="grid grid-cols-2 w-full gap-6 lg:gap-4 md:grid-cols-3 justify-items-center place-items-center lg:grid-cols-4">
+              {schoolData.map((i, index) => {
+                return (
+                  <Link
+                    href={`${i.location}/signin`}
+                    key={index}
+                    passhref
+                    legacyBehavior
+                  >
+                    <a className="flex flex-col items-center">
+                      <div>
+                        <Image
+                          src={i.logo}
+                          layout="intrinsic"
+                          alt="schoollogo"
+                          className="w-auto h-auto"
+                          priority={100}
+                        />
+                      </div>
+                      <div className="flex flex-col items-center justify-center">
+                        <h3 className="text-center font-bold font-inter text-2xl text-primary tracking-[0.06em]">
+                          {i.name}
+                        </h3>
+                        <p className="text-center font-montserrat uppercase tracking-[0.09em] text-primary text-base">
+                          {i.location}
+                        </p>
+                      </div>
+                    </a>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
           {/* Select schoools */}
         </div>
       </WebLayout>
