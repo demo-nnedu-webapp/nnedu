@@ -3,6 +3,7 @@ import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
 import React, { useState } from "react";
+import { WebNavigation } from "../../components/navigation/nav";
 
 function SignUp() {
   const { form } = useForm();
