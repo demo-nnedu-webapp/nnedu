@@ -5,7 +5,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import { WebNavigation } from "../../components/navigation/nav";
 
-function Payment() {
+function SignIn() {
   const { form } = useForm();
 
   return (
@@ -31,4 +31,4 @@ function Payment() {
   );
 }
 
-export default Payment;
+export default SignIn;
