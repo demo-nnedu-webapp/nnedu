@@ -7,7 +7,7 @@ import { DashboardNavItems } from "../navigation/navigationItems/navItems";
 
 const DashboardLayout = ({ children }) => {
   const collapsed = useSelector((state) => state.dashboard.sidebar);
-  // console.log(collapsed);
+  
 
   return (
     <>
