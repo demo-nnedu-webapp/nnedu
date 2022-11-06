@@ -8,9 +8,12 @@ import { WebNavigation } from "../../components/navigation/nav";
 import { CustomCheckBox, CustomItem } from "../../styles/styled";
 import { DefaultButton } from "../../components/customButton/defaultButton";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function SignIn() {
   const { form } = useForm();
+
+  const router = useRouter();
 
   return (
     <>
@@ -37,10 +40,7 @@ function SignIn() {
                       },
                     ]}
                   >
-                    <CustomInput
-                      type="text"
-                      placeholder="student id"
-                    />
+                    <CustomInput type="text" placeholder="student id" />
                   </CustomItem>
 
                   <CustomItem
@@ -52,10 +52,7 @@ function SignIn() {
                       },
                     ]}
                   >
-                    <CustomInput
-                      type="password"
-                      placeholder="password"
-                    />
+                    <CustomInput type="password" placeholder="password" />
                   </CustomItem>
 
                   <CustomItem>
@@ -64,16 +61,23 @@ function SignIn() {
                     </CustomCheckBox>
                   </CustomItem>
 
-                  <DefaultButton className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]">
+                  <DefaultButton
+                    onClick={() => router.push("/dashboard")}
+                    className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]"
+                  >
                     Login
                   </DefaultButton>
                 </div>
               </Form>
 
               <div className="mt-6">
-                <Link href={{
-                  pathname: "/forgotpassword",
-                }} passHref legacyBehavior>
+                <Link
+                  href={{
+                    pathname: "/forgotpassword",
+                  }}
+                  passHref
+                  legacyBehavior
+                >
                   <a className="text-white font-montserrat font-normal tracking-[0.06em] hover:text-secondary">
                     forgot password?
                   </a>
