@@ -10,6 +10,8 @@ const StyledInput = styled(Input)`
   box-shadow: none;
   background-color: white;
   width: 100%;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.06em;
 
   &:hover {
     border: 2px solid #dec918;
@@ -27,14 +29,13 @@ const StyledInput = styled(Input)`
   }
 `;
 
-const CustomInput = ({ type, placeholder, min, max }) => {
+const CustomInput = ({ type, placeholder}) => {
   return (
     <>
       <StyledInput
         type={type}
         placeholder={placeholder}
-        minLength={min}
-        maxLength={max}
+        autoComplete="true"
       />
     </>
   );

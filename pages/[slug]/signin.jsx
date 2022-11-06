@@ -32,7 +32,7 @@ function SignIn() {
                     name="studentId"
                     rules={[
                       {
-                        required: true,
+                        required: false,
                         message: "please enter studentId",
                       },
                     ]}
@@ -40,8 +40,6 @@ function SignIn() {
                     <CustomInput
                       type="text"
                       placeholder="student id"
-                      min={9}
-                      max={9}
                     />
                   </CustomItem>
 
@@ -49,7 +47,7 @@ function SignIn() {
                     name="password"
                     rules={[
                       {
-                        required: true,
+                        required: false,
                         message: "please enter password",
                       },
                     ]}
@@ -57,8 +55,6 @@ function SignIn() {
                     <CustomInput
                       type="password"
                       placeholder="password"
-                      min={9}
-                      max={9}
                     />
                   </CustomItem>
 
@@ -68,15 +64,19 @@ function SignIn() {
                     </CustomCheckBox>
                   </CustomItem>
 
-                  <DefaultButton className="w-full bg-secondary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]">
+                  <DefaultButton className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]">
                     Login
                   </DefaultButton>
                 </div>
               </Form>
 
               <div className="mt-6">
-                <Link href="/forgotpassword" passHref legacyBehavior>
-                  <a className="text-white font-montserrat font-normal tracking-[0.06em] hover:text-secondary">forgot password?</a>
+                <Link href={{
+                  pathname: "/forgotpassword",
+                }} passHref legacyBehavior>
+                  <a className="text-white font-montserrat font-normal tracking-[0.06em] hover:text-secondary">
+                    forgot password?
+                  </a>
                 </Link>
               </div>
             </div>
