@@ -2,9 +2,12 @@ import { Icon } from "@iconify/react";
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { CustomInput } from "../../components/customInput/customInput";
 import { WebNavigation } from "../../components/navigation/nav";
+import { CustomCheckBox, CustomItem } from "../../styles/styled";
+import { DefaultButton } from "../../components/customButton/defaultButton";
+import Link from "next/link";
 
 function SignIn() {
   const { form } = useForm();
@@ -18,12 +21,64 @@ function SignIn() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
       </div>
-      <div className="h-full min-h-screen flex flex-col w-full">
+      <div className="h-full min-h-screen flex items-center justify-center flex-col w-full">
         <WebNavigation viewHeaderonAuth={true} />
-        <div className="h-screen min-h-screen w-full flex items-center justify-center">
-          <div className="w-full max-w-md p-6 bg-[#1f1839] flex items-center justify-center flex-col">
-            <div>
-              <Form form={form} layout="vertical" className="w-full"></Form>
+        <div className="h-full w-full flex items-center justify-center">
+          <div className="w-full max-w-lg p-6 bg-primary h-[28rem] flex items-center justify-center flex-col">
+            <div className="w-full max-w-sm">
+              <Form form={form} layout="vertical" className="w-full">
+                <div className="w-full flex flex-col gap-y-8 gap-x-4">
+                  <CustomItem
+                    name="studentId"
+                    rules={[
+                      {
+                        required: true,
+                        message: "please enter studentId",
+                      },
+                    ]}
+                  >
+                    <CustomInput
+                      type="text"
+                      placeholder="student id"
+                      min={9}
+                      max={9}
+                    />
+                  </CustomItem>
+
+                  <CustomItem
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "please enter password",
+                      },
+                    ]}
+                  >
+                    <CustomInput
+                      type="password"
+                      placeholder="password"
+                      min={9}
+                      max={9}
+                    />
+                  </CustomItem>
+
+                  <CustomItem>
+                    <CustomCheckBox className="font-montserrat tracking-[0.06em]">
+                      Remember me
+                    </CustomCheckBox>
+                  </CustomItem>
+
+                  <DefaultButton className="w-full bg-secondary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]">
+                    Login
+                  </DefaultButton>
+                </div>
+              </Form>
+
+              <div className="mt-6">
+                <Link href="/forgotpassword" passHref legacyBehavior>
+                  <a className="text-white font-montserrat font-normal tracking-[0.06em] hover:text-secondary">forgot password?</a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
