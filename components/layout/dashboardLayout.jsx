@@ -23,7 +23,7 @@ const DashboardLayout = ({ children }) => {
               </div>
             </div>
           </CustomSider>
-          <StyledContent className="lg:ml-[250px] z-10 text-black bg-white h-full mt-16 p-6">
+          <StyledContent className="lg:ml-[250px] z-10 text-black bg-dashboardbg h-full mt-16 p-6">
             {children}
           </StyledContent>
         </Layout>

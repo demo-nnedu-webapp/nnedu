@@ -47,6 +47,7 @@ module.exports = {
       transparent: "transparent",
       primary: "#1F1839",
       secondary: "#DEC918",
+      dashboardbg: '#FAFBFC',
     }),
     columns: {
       auto: "auto",
