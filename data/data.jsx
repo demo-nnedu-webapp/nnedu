@@ -142,7 +142,6 @@ export const paymentcolumns = [
     title: "Id",
     dataIndex: "id",
     key: "id",
-    responsive: ["md"],
     render: (text) => <p>{text}</p>,
   },
   {
@@ -153,7 +152,7 @@ export const paymentcolumns = [
   {
     title: "Amount",
     dataIndex: "amount",
-    responsive: ["md"],
+    // responsive: ["md"],
     render: (text) => <p>₦{text}</p>,
   },
   {
@@ -171,12 +170,9 @@ export const paymentcolumns = [
   {
     title: "Actions",
     dataIndex: "actions",
-    responsive: ["md"],
-    fixed: "right",
-    width: 50,
     render: () => (
       <>
-        <div className="flex gap-4 items-center">
+        <div className="flex flex-wrap flex-1 md:flex-row gap-4 items-center">
           <button>
             <Icon
               icon="fluent:print-28-filled"

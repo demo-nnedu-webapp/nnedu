@@ -9,14 +9,15 @@ import { DefaultButton } from "../customButton/defaultButton";
 import { Icon } from "@iconify/react";
 
 function PaymentHistory() {
+
   return (
     <>
       <div className="p-4 w-full">
         <div className="w-full grid-cols-2 grid md:grid-cols-4 mt-3 gap-4">
-          {paymentHistoryData.map((i) => {
+          {paymentHistoryData.map((i,index) => {
             return (
               <div
-                key={i.color}
+                key={index}
                 className={`${i.color} w-full lg:hover:scale-110 ease-in-out duration-500 p-4`}
               >
                 <div className="flex flex-col gap-y-3">
@@ -38,7 +39,7 @@ function PaymentHistory() {
         <div className="mt-12">
           <CustomTable columns={paymentcolumns} data={paymentdata} />
         </div>
-        <div className="flex mt-6 items-end gap-4 w-full justify-end">
+        <div className="grid grid-cols-1 md:grid-cols-3 mt-6 gap-3 w-full">
           <DefaultButton className="flex items-center gap-x-3 bg-primary text-white py-2.5 rounded-md px-4">
             <Icon
               icon="fluent:print-28-filled"
