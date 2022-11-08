@@ -12,29 +12,39 @@ const StyledInput = styled(Input)`
   width: 100%;
   font-family: Montserrat, sans-serif;
   letter-spacing: 0.06em;
+  border: ${(props) => (props.auth ? "2px solid #1f1839" : "none")};
 
   &:hover {
-    border: 2px solid #dec918;
+    border: ${(props) =>
+      props.auth ? "2px solid #1f1839" : "2px solid #dec918"};
     box-shadow: none;
   }
 
   &:focus {
-    border: 2px solid #dec918;
+    border: ${(props) =>
+      props.auth ? "2px solid #1f1839" : "2px solid #dec918"};
     box-shadow: none;
 
     &:active {
-      border: 2px solid #dec918;
+      border: ${(props) =>
+        props.auth ? "2px solid #1f1839" : "2px solid #dec918"};
       box-shadow: none;
+    }
+
+    &:disabled {
+      background-color: #E8E8E8;
     }
   }
 `;
 
-const CustomInput = ({ type, placeholder}) => {
+const CustomInput = ({ type, placeholder, auth, disabled }) => {
   return (
     <>
       <StyledInput
         type={type}
+        auth={auth}
         placeholder={placeholder}
+        disabled={disabled}
         autoComplete="true"
       />
     </>

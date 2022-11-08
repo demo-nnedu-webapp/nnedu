@@ -1,9 +1,15 @@
-import { Icon } from "@iconify/react";
+import { Tabs } from "antd";
 import Head from "next/head";
 import React, { useState } from "react";
 import DashboardLayout from "../../components/layout/dashboardLayout";
+import MakePayment from "../../components/payment/makepayment";
+import PaymentHistory from "../../components/payment/paymenthistory";
+import { CustomTabs } from "../../styles/styled";
 
 function Payment() {
+  const onChange = (key) => {
+    console.log(key);
+  };
 
   return (
     <>
@@ -15,9 +21,29 @@ function Payment() {
         </Head>
       </div>
       <DashboardLayout>
-        <h2 className="font-bold text-2xl font-mono text-[#1f1839]">Payment</h2>
-        <div className="bg-[#1f1839] w-full p-4">
-          <div className="w-full flex justify-between"></div>
+        <div className="mt-4">
+          <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] uppercase text-[#1f1839]">
+            Payment Status
+          </h2>
+          <div className="w-full mt-4 bg-white shadow-md max-w-4xl p-4">
+            <CustomTabs
+              defaultActiveKey="online payment"
+              onChange={onChange}
+              tabBarGutter={30}
+              items={[
+                {
+                  label: "Online Payment",
+                  key: "online Payment",
+                  children: <MakePayment />,
+                },
+                {
+                  label: "Payment History",
+                  key: "payment history",
+                  children: <PaymentHistory />,
+                },
+              ]}
+            />
+          </div>
         </div>
       </DashboardLayout>
     </>
