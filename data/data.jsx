@@ -111,125 +111,28 @@ export const selectpaymentoptiondata = [
 export const paymentHistoryData = [
   {
     icon: <Icon icon="ant-design:account-book-filled" width="30" height="30" />,
+    color: "bg-red-500",
     heading: "Book Fees",
     amount: "0.00",
-    color: "bg-green-500",
   },
   {
     icon: <Icon icon="mdi:contactless-payment-circle" width="30" height="30" />,
+    color: "bg-red-500",
     heading: "School Fees",
     amount: "0.00",
-    color: "bg-red-500",
   },
   {
     icon: <Icon icon="icon-park-solid:flash-payment" width="30" height="30" />,
+    color: "bg-blue-500",
     heading: "Logistics Levy",
     amount: "0.00",
-    color: "bg-blue-500",
   },
   {
     icon: (
       <Icon icon="heroicons-solid:cube-transparent" width="30" height="30" />
     ),
+    color: "bg-purple-500",
     heading: "PTA Levy",
     amount: "0.00",
-    color: "bg-purple-500",
-  },
-];
-
-export const paymentcolumns = [
-  {
-    title: "Id",
-    dataIndex: "id",
-    key: "id",
-    render: (text) => <p>{text}</p>,
-  },
-  {
-    title: "Fees Type",
-    dataIndex: "type",
-    responsive: ["md"],
-  },
-  {
-    title: "Amount",
-    dataIndex: "amount",
-    // responsive: ["md"],
-    render: (text) => <p>₦{text}</p>,
-  },
-  {
-    title: "Collected By",
-    dataIndex: "collected",
-    responsive: ["md"],
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Date",
-    dataIndex: "date",
-    responsive: ["md"],
-    render: () => date,
-  },
-  {
-    title: "Actions",
-    dataIndex: "actions",
-    render: () => (
-      <>
-        <div className="flex flex-wrap flex-1 md:flex-row gap-4 items-center">
-          <button>
-            <Icon
-              icon="fluent:print-28-filled"
-              color="#1F1839"
-              width="24"
-              height="24"
-            />
-          </button>
-          <button>
-            <Icon
-              icon="ant-design:delete-filled"
-              color="#DE1E12"
-              width="24"
-              height="24"
-            />
-          </button>
-          <button>
-            <Icon
-              icon="clarity:export-solid"
-              color="#00D23B"
-              width="24"
-              height="24"
-            />
-          </button>
-        </div>
-      </>
-    ),
-  },
-];
-
-export const paymentdata = [
-  {
-    key: "1",
-    id: "NNSS1101",
-    type: "Book Fees",
-    amount: "30,000",
-    collected: "DNED",
-  },
-  {
-    key: "2",
-    id: "NNSS1101",
-    type: "School Fees",
-    amount: "7,500",
-    collected: "NNSS OJO",
-  },
-  {
-    key: "3",
-    id: "NNSS1101",
-    type: "PTA Levy",
-    amount: "8,000",
-    collected: "PTA",
-  },
-  {
-    key: "4",
-    id: "NNSS1101",
-    type: "Logistic Levy",
-    amount: "30,000",
-    collected: "NNSS OJO",
   },
 ];

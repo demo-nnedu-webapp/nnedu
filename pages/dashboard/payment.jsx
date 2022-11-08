@@ -22,12 +22,12 @@ function Payment() {
       </div>
       <DashboardLayout>
         <div className="mt-4">
-          <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] uppercase text-[#1f1839]">
+          <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-[#1f1839]">
             Payment Status
           </h2>
           <div className="w-full mt-4 bg-white shadow-md max-w-4xl p-4">
             <CustomTabs
-              defaultActiveKey="online payment"
+              defaultActiveKey="payment history"
               onChange={onChange}
               tabBarGutter={30}
               items={[
