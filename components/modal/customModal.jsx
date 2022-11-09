@@ -5,13 +5,17 @@ import styled from "styled-components";
 
 const StyledModal = styled(Modal)``;
 
-const CustomModal = ({ title, cancel, children }) => {
+const CustomModal = ({ title, cancel, children, footer }) => {
   const modalState = useSelector((state) => state.dashboard.modal);
-  console.log(modalState);
 
   return (
     <>
-      <StyledModal title={title} open={modalState} onCancel={cancel}>
+      <StyledModal
+        title={title}
+        open={modalState}
+        onCancel={cancel}
+        footer={footer}
+      >
         {children}
       </StyledModal>
     </>
