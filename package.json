@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@iconify/react": "^4.0.0",
+    "@react-pdf/renderer": "^3.0.1",
     "@reduxjs/toolkit": "^1.8.6",
     "antd": "^4.23.6",
     "chart.js": "^3.9.1",
