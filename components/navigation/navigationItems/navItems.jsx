@@ -103,6 +103,32 @@ export const DashboardNavItems = () => {
     },
     {
       icon: (
+        <Avatar
+          className=""
+          size={30}
+          style={{ backgroundColor: "white", color: "#1F1839" }}
+        >
+          U
+        </Avatar>
+      ),
+      link: "/dashboard/profile",
+      label: "Student Profile",
+    },
+    {
+      icon: (
+        <Icon
+          icon="ph:exam-fill"
+          color={router.pathname === "/dashboard/exam" ? "#dec918" : "white"}
+          width="30"
+          height="30"
+        />
+      ),
+      link: "/dashboard/#",
+      label: "Exam",
+      disabled: "disabled",
+    },
+    {
+      icon: (
         <Icon
           icon="ri:secure-payment-fill"
           color={router.pathname === "/dashboard/payment" ? "#dec918" : "white"}
@@ -115,16 +141,16 @@ export const DashboardNavItems = () => {
     },
     {
       icon: (
-        <Avatar
-          className=""
-          size={30}
-          style={{ backgroundColor: "white", color: "#1F1839" }}
-        >
-          U
-        </Avatar>
+        <Icon
+          icon="clarity:notification-solid-badged"
+          color={router.pathname === "/dashboard/exam" ? "#dec918" : "white"}
+          width="30"
+          height="30"
+        />
       ),
-      link: "/dashboard/profile",
-      label: "Student Profile",
+      link: "/dashboard/#",
+      label: "Notice Board",
+      disabled: "disabled",
     },
   ];
 
