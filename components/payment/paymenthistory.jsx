@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 import { useDispatch, useSelector } from "react-redux";
 import { hideModal, showModal } from "../../app/slices/dashboardSlice";
 import { CustomModal } from "../modal/customModal";
+import ReceiptPDF from "../customPdf/customPdf";
 
 function PaymentHistory() {
   const dispatch = useDispatch();
@@ -69,7 +70,9 @@ function PaymentHistory() {
         <CustomModal
           title="Print Receipt"
           cancel={() => dispatch(hideModal(modalState))}
-        />
+        >
+          <ReceiptPDF />
+        </CustomModal>
       )}
     </>
   );

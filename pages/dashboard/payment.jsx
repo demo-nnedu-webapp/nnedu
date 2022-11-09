@@ -25,7 +25,7 @@ function Payment() {
           <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-[#1f1839]">
             Payment Status
           </h2>
-          <div className="w-full mt-4 bg-white shadow-md max-w-4xl p-4">
+          <div className="w-full mt-4 border-t-4 border-b-4 border-primary bg-white shadow-md max-w-4xl p-4">
             <CustomTabs
               defaultActiveKey="payment history"
               onChange={onChange}
