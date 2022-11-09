@@ -17,13 +17,13 @@ function Dashboard() {
       </div>
       <DashboardLayout>
         <div className="mt-4">
-          <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] uppercase text-[#1f1839]">
+          <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
             Dashboard
           </h2>
           <div className="w-full mt-4">
-            <div className="w-full flex flex-col lg:flex-row gap-4">
+            <div className="w-full flex flex-col md:flex-row gap-4">
               {/* component one */}
-              <div className="bg-white md:w-1/3 shadow-md flex items-start justify-center p-6">
+              <div className="bg-white lg:w-1/3 shadow-md flex items-start justify-center p-6">
                 <div className="w-full flex gap-y-2 justify-center flex-col">
                   <h3 className="font-inter text-primary font-medium text-lg tracking-[0.065em]">
                     Update student profile
@@ -54,7 +54,7 @@ function Dashboard() {
               {/* component one */}
 
               {/* component two */}
-              <div className="bg-primary md:w-1/3 shadow-md flex items-start justify-center p-6">
+              <div className="bg-primary lg:w-1/3 shadow-md flex items-start justify-center p-6">
                 <div className="w-full flex gap-y-2 justify-center flex-col">
                   <h3 className="font-inter text-white font-medium text-lg tracking-[0.065em]">
                     Payments completion
@@ -64,7 +64,7 @@ function Dashboard() {
                     required of them
                   </p>
 
-                  <Link href="#" passHref legacyBehavior>
+                  <Link href="/dashboard/payment" passHref legacyBehavior>
                     <a className="font-montserrat flex gap-x-1 items-center w-fit tracking-[0.06em] text-secondary font-medium hover:text-white">
                       complete payments
                       <Icon
