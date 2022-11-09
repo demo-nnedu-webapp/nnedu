@@ -52,11 +52,11 @@ const CustomTable = () => {
 
   const [dataset, setData] = useState(paymentdata);
 
-  const handleDelete = (key, e) => {
-    // e.preventDefault();
-    const data = dataset.filter((item) => item.key !== key);
+  const handleDelete = (id) => {
+    const data = [...dataset];
+    data.splice(id, 1);
     console.log(data);
-    // setData(data);
+    setData(data);
   };
 
   const paymentcolumns = [
@@ -117,8 +117,8 @@ const CustomTable = () => {
               />
             </button>
             <button
-              onClick={(record, e) => {
-                handleDelete(record.key === "id", e);
+              onClick={(record) => {
+                handleDelete(record.key); //TODO:: add modal to confirm delete
               }}
             >
               <Icon
@@ -149,14 +149,12 @@ const CustomTable = () => {
   return (
     <>
       <StyledTable
-        onRow={(record, rowIndex) => {
-          console.log(record);
-        }}
+        onRow={(record, rowIndex) => {}}
         rowSelection={{
           onChange: onChange,
         }}
         columns={paymentcolumns}
-        dataSource={paymentdata}
+        dataSource={dataset}
         pagination={false}
       />
     </>
