@@ -119,3 +119,17 @@ img {
   letter-spacing: 0.06em !important;
   font-weight: 600;
 }
+
+.ant-upload.ant-upload-select-picture-card {
+  width: 120px !important;
+  height: 120px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  text-align: center;
+  vertical-align: top;
+  background-color: #fafafa;
+  border: 1px solid #1f1839 !important;
+  border-radius: 0.0375rem !important;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
