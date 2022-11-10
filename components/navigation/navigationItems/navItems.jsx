@@ -106,7 +106,12 @@ export const DashboardNavItems = () => {
         <Avatar
           className=""
           size={30}
-          style={{ backgroundColor: "white", color: "#1F1839" }}
+          style={{
+            backgroundColor:
+              router.pathname === "/dashboard/profile" ? "#dec918" : "white",
+            color:
+              router.pathname === "/dashboard/profile" ? "white" : "#1F1839",
+          }}
         >
           U
         </Avatar>
