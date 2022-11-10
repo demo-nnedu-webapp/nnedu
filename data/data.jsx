@@ -136,3 +136,16 @@ export const paymentHistoryData = [
     amount: "0.00",
   },
 ];
+
+export const dummyprofiledata = [
+  {
+    fname: "Ciroma",
+    lname: "Abdullahi",
+    mname: "Adelaide",
+    dob: date,
+    nationality: "Nigerian",
+    religion: "unknown",
+    pob: "unknown",
+    gender: "unknown",
+  },
+];
