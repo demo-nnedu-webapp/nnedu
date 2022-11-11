@@ -3,10 +3,15 @@ import Head from "next/head";
 import React from "react";
 import { CustomAvatar } from "../../components/customAvatar/customAvatar";
 import DashboardLayout from "../../components/layout/dashboardLayout";
-import { dummyprofiledata } from "../../data/data";
+import { CustomTable } from "../../components/customTable/customTable";
+import { DefaultButton } from "../../components/customButton/defaultButton";
+import Link from "next/link";
+import { Icon } from "@iconify/react";
+import { columndata, promotionData } from "../../data/data";
 
 function Profile() {
   const date = new Date().toJSON().slice(0, 10);
+
   return (
     <>
       <div>
@@ -17,7 +22,7 @@ function Profile() {
         </Head>
       </div>
       <DashboardLayout>
-        <div className="mt-4 w-full max-w-3xl">
+        <div className="mt-4 w-full">
           <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
             Profile
           </h2>
@@ -127,12 +132,13 @@ function Profile() {
         </div>
 
         <div className="mt-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            {/* Academic Details */}
+            <div className="lg:col-span-2">
               <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
                 Academic details
               </h2>
-              <div className="bg-white shadow-md p-6 flex justify-center mt-4 border-t-4 border-primary">
+              <div className="bg-white w-full shadow-md p-6 flex lg:justify-center mt-4 border-t-4 border-primary">
                 <div className="grid grid-cols-2 justify-start items-center gap-y-5 gap-x-16 p-4">
                   <div className="w-fit flex flex-col">
                     <h4 className="font-inter font-medium text-base tracking-[0.06em]">
@@ -181,11 +187,98 @@ function Profile() {
                 </div>
               </div>
             </div>
-            <div>
+            {/* Academic Details */}
+
+            <div className="lg:col-span-3">
               <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
                 Promotion history
               </h2>
+              <div className="bg-white shadow-md w-full flex justify-center mt-4 border-t-4 border-primary">
+                <div className="w-full flex flex-col gap-y-4 gap-x-4 items-center justify-center">
+                  <CustomTable
+                    datasource={promotionData}
+                    columndata={columndata}
+                    selectData
+                  />
+                  <DefaultButton
+                    className="bg-primary mb-4 text-white font-montserrat font-medium
+                   tracking-[0.06em] py-2.5 rounded-md px-4"
+                  >
+                    View full history
+                  </DefaultButton>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <div className="grid grid-cols-1 gap-y-6 md:grid-cols-5 md:gap-4">
+            <div className="lg:col-span-2">
+              <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
+                Fees status
+              </h2>
+              <div className="bg-white w-full shadow-md p-6 flex items-center justify-center mt-4">
+                <Link href="/dashboard/payment" passHref legacyBehavior>
+                  <a className="flex items-center text-primary hover:text-secondary font-inter font-medium text-base tracking-[0.06em] gap-4">
+                    <Icon
+                      icon="ant-design:link-outlined"
+                      width={48}
+                      height={48}
+                    />
+                    View status on payment page
+                  </a>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-3">
+              <div className="flex w-full items-center justify-between">
+                <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
+                  Assesments reports
+                </h2>
+
+                <Link href="#" passHref legacyBehavior>
+                  <a
+                    className="font-montserrat italic underline font-medium shadow-sm text-secondary
+                   hover:text-primary active:text-secondary"
+                  >
+                    view all
+                  </a>
+                </Link>
+              </div>
+
+              <div className="bg-white w-full shadow-md p-6 flex items-center justify-center mt-4">
+                <div className="flex w-full justify-between items-center">
+                  <div>
+                    <h4 className="font-inter font-medium text-base tracking-[0.06em] text-primary">
+                      Class
+                    </h4>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-primary text-base font-montserrat font-medium tracking-[0.06em]">
+                      JSS 3 Ekun
+                    </p>
+                    <DefaultButton>
+                      <Icon
+                        icon="ic:baseline-download-for-offline"
+                        width={30}
+                        height={30}
+                      />
+                    </DefaultButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
+            Documents
+          </h2>
+          <div className="mt-4">
+            <CustomTable columndata={[]} datasource={[]} selectData/>
           </div>
         </div>
       </DashboardLayout>

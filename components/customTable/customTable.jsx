@@ -6,6 +6,7 @@ import { showModal } from "../../app/slices/dashboardSlice";
 import { Icon } from "@iconify/react";
 
 const StyledTable = styled(Table)`
+  width: 100%;
   .ant-table-thead > tr > th {
     background-color: #1f1839;
     color: white;
@@ -14,7 +15,7 @@ const StyledTable = styled(Table)`
   }
 `;
 
-const CustomTable = () => {
+const CustomTable = ({ datasource, columndata, selectData }) => {
   const date = new Date().toJSON().slice(0, 10);
   const dispatch = useDispatch();
   const modalState = useSelector((state) => state.dashboard.modal);
@@ -150,11 +151,9 @@ const CustomTable = () => {
     <>
       <StyledTable
         onRow={(record, rowIndex) => {}}
-        rowSelection={{
-          onChange: onChange,
-        }}
-        columns={paymentcolumns}
-        dataSource={dataset}
+        rowSelection={selectData ? false : { onChange: onChange }}
+        columns={columndata ? columndata : paymentcolumns}
+        dataSource={datasource ? datasource : dataset}
         pagination={false}
       />
     </>
