@@ -41,7 +41,7 @@ function PaymentHistory() {
         <div className="mt-12">
           <CustomTable />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-3 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-3 w-full">
           <DefaultButton
             className="flex items-center gap-x-3 bg-primary
            text-white py-2.5 rounded-md px-4 font-montserrat font-normal tracking-[0.06em]"
@@ -50,13 +50,13 @@ function PaymentHistory() {
             <Icon icon="fluent:print-28-filled" width="24" height="24" />
             Print All
           </DefaultButton>
-          <DefaultButton
+          {/* <DefaultButton
             className="flex items-center gap-x-3 bg-[#DE1E12]
            text-white py-2.5 rounded-md px-4 font-montserrat font-normal tracking-[0.06em]"
           >
             <Icon icon="ant-design:delete-filled" width="24" height="24" />
             Delete All
-          </DefaultButton>
+          </DefaultButton> */}
           <DefaultButton
             className="flex items-center gap-x-3 bg-[#00D23B]
            text-white py-2.5 rounded-md px-4 font-montserrat font-normal tracking-[0.06em]"

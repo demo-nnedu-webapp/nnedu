@@ -149,3 +149,51 @@ export const dummyprofiledata = [
     gender: "unknown",
   },
 ];
+
+export const columndata = [
+  {
+    title: "No",
+    dataIndex: "id",
+    key: "id",
+    render: (text) => (
+      <p className="font-montserrat font-medium tracking-[0.06em]">{text}</p>
+    ),
+  },
+  {
+    title: "From Class",
+    dataIndex: "fromclass",
+    key: "fclass",
+    render: (text) => (
+      <p className="font-montserrat font-normal tracking-[0.06em]">{text}</p>
+    ),
+  },
+  {
+    title: "To Class",
+    dataIndex: "toclass",
+    key: "tclass",
+    render: (text) => (
+      <p className="font-montserrat font-normal tracking-[0.06em]">{text}</p>
+    ),
+  },
+];
+
+export const promotionData = [
+  {
+    key: "1",
+    id: "1",
+    fromclass: "JSS 1 Ekun",
+    toclass: "JSS 2 Ekun",
+  },
+  {
+    key: "2",
+    id: "2",
+    fromclass: "JSS 2 Ekun",
+    toclass: "JSS 3 Siri",
+  },
+  {
+    key: "3",
+    id: "3",
+    fromclass: "JSS 3 Siri",
+    toclass: "SS1 1 Siri",
+  },
+];
