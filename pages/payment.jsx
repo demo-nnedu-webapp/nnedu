@@ -1,10 +1,10 @@
 import { Tabs } from "antd";
 import Head from "next/head";
 import React, { useState } from "react";
-import DashboardLayout from "../../components/layout/dashboardLayout";
-import MakePayment from "../../components/payment/makepayment";
-import PaymentHistory from "../../components/payment/paymenthistory";
-import { CustomTabs } from "../../styles/styled";
+import DashboardLayout from "../components/layout/dashboardLayout";
+import MakePayment from "../components/payment/makepayment";
+import PaymentHistory from "../components/payment/paymenthistory";
+import { CustomTabs } from "../styles/styled";
 
 function Payment() {
   const onChange = (key) => {

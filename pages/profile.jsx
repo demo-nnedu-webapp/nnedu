@@ -1,13 +1,13 @@
 import { Form } from "antd";
 import Head from "next/head";
 import React from "react";
-import { CustomAvatar } from "../../components/customAvatar/customAvatar";
-import DashboardLayout from "../../components/layout/dashboardLayout";
-import { CustomTable } from "../../components/customTable/customTable";
-import { DefaultButton } from "../../components/customButton/defaultButton";
+import { CustomAvatar } from "../components/customAvatar/customAvatar";
+import DashboardLayout from "../components/layout/dashboardLayout";
+import { CustomTable } from "../components/customTable/customTable";
+import { DefaultButton } from "../components/customButton/defaultButton";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { columndata, promotionData } from "../../data/data";
+import { columndata, promotionData } from "../data/data";
 
 function Profile() {
   const date = new Date().toJSON().slice(0, 10);
@@ -278,7 +278,7 @@ function Profile() {
             Documents
           </h2>
           <div className="mt-4">
-            <CustomTable columndata={[]} datasource={[]} selectData/>
+            <CustomTable columndata={[]} datasource={[]} selectData />
           </div>
         </div>
       </DashboardLayout>

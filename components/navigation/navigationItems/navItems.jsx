@@ -98,7 +98,7 @@ export const DashboardNavItems = () => {
           height="30"
         />
       ),
-      link: "/dashboard",
+      link: "/",
       label: "dashboard",
     },
     {
@@ -116,7 +116,7 @@ export const DashboardNavItems = () => {
           U
         </Avatar>
       ),
-      link: "/dashboard/profile",
+      link: "/profile",
       label: "Student Profile",
     },
     {
@@ -128,7 +128,7 @@ export const DashboardNavItems = () => {
           height="30"
         />
       ),
-      link: "/dashboard/#",
+      link: "#",
       label: "Exam",
       disabled: "disabled",
     },
@@ -141,7 +141,7 @@ export const DashboardNavItems = () => {
           height="30"
         />
       ),
-      link: "/dashboard/payment",
+      link: "/payment",
       label: "payment",
     },
     {
@@ -153,8 +153,8 @@ export const DashboardNavItems = () => {
           height="30"
         />
       ),
-      link: "/dashboard/#",
-      label: "Notice Board",
+      link: "#",
+      label: "Activities",
       disabled: "disabled",
     },
   ];

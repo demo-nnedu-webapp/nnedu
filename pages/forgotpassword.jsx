@@ -36,7 +36,11 @@ function Forgotpassword() {
                       },
                     ]}
                   >
-                    <CustomInput name="schoolemail" type="email" placeholder="school email address" />
+                    <CustomInput
+                      name="schoolemail"
+                      type="email"
+                      placeholder="school email address"
+                    />
                   </CustomItem>
 
                   <DefaultButton className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]">

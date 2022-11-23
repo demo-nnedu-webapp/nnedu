@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   sidebar: false,
   modal: false,
+  paymentHistorydata: {},
 };
 
 const DashboardReducer = createSlice({
@@ -20,6 +21,9 @@ const DashboardReducer = createSlice({
     },
     hideModal: (state) => {
       state.modal = false;
+    },
+    paymentData: (state) => {
+      state.paymentHistorydata = {};
     },
   },
 });
