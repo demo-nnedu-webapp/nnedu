@@ -98,7 +98,7 @@ export const DashboardNavItems = () => {
           height="30"
         />
       ),
-      link: "/",
+      link: "/dashboard",
       label: "dashboard",
     },
     {
@@ -108,9 +108,8 @@ export const DashboardNavItems = () => {
           size={30}
           style={{
             backgroundColor:
-              router.pathname === "/dashboard/profile" ? "#dec918" : "white",
-            color:
-              router.pathname === "/dashboard/profile" ? "white" : "#1F1839",
+              router.pathname === "/profile" ? "#dec918" : "white",
+            color: router.pathname === "/profile" ? "white" : "#1F1839",
           }}
         >
           U
@@ -123,7 +122,7 @@ export const DashboardNavItems = () => {
       icon: (
         <Icon
           icon="ph:exam-fill"
-          color={router.pathname === "/dashboard/exam" ? "#dec918" : "white"}
+          color={router.pathname === "/exam" ? "#dec918" : "white"}
           width="30"
           height="30"
         />
@@ -131,12 +130,13 @@ export const DashboardNavItems = () => {
       link: "#",
       label: "Exam",
       disabled: "disabled",
+      soon: "coming soon",
     },
     {
       icon: (
         <Icon
           icon="ri:secure-payment-fill"
-          color={router.pathname === "/dashboard/payment" ? "#dec918" : "white"}
+          color={router.pathname === "/payment" ? "#dec918" : "white"}
           width="30"
           height="30"
         />
@@ -148,7 +148,7 @@ export const DashboardNavItems = () => {
       icon: (
         <Icon
           icon="clarity:notification-solid-badged"
-          color={router.pathname === "/dashboard/exam" ? "#dec918" : "white"}
+          color={router.pathname === "/activities" ? "#dec918" : "white"}
           width="30"
           height="30"
         />
@@ -156,6 +156,7 @@ export const DashboardNavItems = () => {
       link: "#",
       label: "Activities",
       disabled: "disabled",
+      soon: "coming soon",
     },
   ];
 
@@ -164,15 +165,20 @@ export const DashboardNavItems = () => {
       {DashboardItems.map((i, index) => {
         return (
           <Link href={i.link} key={index} passHref legacyBehavior>
-            <a
-              className={`${
-                router.asPath === i.link ? "text-[#dec918]" : "text-white"
-              } flex gap-x-2 capitalize font-inter tracking-[0.07em] first:mt-0 mt-4 text-white items-center hover:text-[#dec918]`}
-              onClick={() => dispatch(hideSidebar())}
-            >
-              {i.icon}
-              {i.label}
-            </a>
+            <div className="flex flex-col first:mt-0 mt-4">
+              <a
+                className={`${
+                  router.asPath === i.link ? "text-[#dec918]" : "text-white"
+                } flex gap-x-2 capitalize font-inter tracking-[0.07em] text-white items-center hover:text-[#dec918]`}
+                onClick={() => dispatch(hideSidebar())}
+              >
+                {i.icon}
+                {i.label}
+              </a>
+              <span className="text-xs text-secondary font-medium font-montserrat tracking-[0.06em]">
+                {i.soon}
+              </span>
+            </div>
           </Link>
         );
       })}
