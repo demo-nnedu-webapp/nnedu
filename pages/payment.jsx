@@ -35,11 +35,13 @@ function Payment() {
                   label: "Online Payment",
                   key: "online Payment",
                   children: <MakePayment />,
+                  animated: true,
                 },
                 {
                   label: "Payment History",
                   key: "payment history",
                   children: <PaymentHistory />,
+                  animated: true,
                 },
               ]}
             />

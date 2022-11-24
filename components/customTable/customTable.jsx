@@ -117,7 +117,7 @@ const CustomTable = ({ datasource, columndata, selectData }) => {
                 height="24"
               />
             </button>
-            <button
+            {/* <button
               onClick={(record) => {
                 handleDelete(record.key); //TODO:: add modal to confirm delete
               }}
@@ -128,7 +128,7 @@ const CustomTable = ({ datasource, columndata, selectData }) => {
                 width="24"
                 height="24"
               />
-            </button>
+            </button> */}
             <button>
               <Icon
                 icon="clarity:export-solid"
