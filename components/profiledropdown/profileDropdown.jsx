@@ -25,7 +25,7 @@ const DropdownProfile = () => {
         },
         {
           label: (
-            <Link href="#" className="font-bold">
+            <Link href="/" className="font-bold">
               LogOut
             </Link>
           ),
