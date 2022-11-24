@@ -28,13 +28,13 @@ function Dashboard() {
                   <h3 className="font-inter text-primary font-medium text-lg tracking-[0.065em]">
                     Update student profile
                   </h3>
-                  <p className="font-montserrat text-primary tracking-[0.06em]">
+                  <p className="font-montserrat font-medium text-primary tracking-[0.06em]">
                     Students are required to update their profile frequently
                     based on their major activities
                   </p>
 
                   <Link href="#" passHref legacyBehavior>
-                    <a className="font-montserrat flex gap-x-1 items-center w-fit tracking-[0.06em] text-secondary font-medium hover:text-primary">
+                    <a className="font-inter flex gap-x-1 items-center w-fit tracking-[0.06em] text-secondary font-medium hover:text-primary">
                       update profile
                       <Icon
                         icon="ant-design:arrow-right-outlined"
@@ -59,13 +59,13 @@ function Dashboard() {
                   <h3 className="font-inter text-white font-medium text-lg tracking-[0.065em]">
                     Payments completion
                   </h3>
-                  <p className="font-montserrat text-white tracking-[0.06em]">
+                  <p className="font-montserrat font-medium text-white tracking-[0.06em]">
                     Parents / Students are required to complete their payments
                     required of them
                   </p>
 
                   <Link href="/dashboard/payment" passHref legacyBehavior>
-                    <a className="font-montserrat flex gap-x-1 items-center w-fit tracking-[0.06em] text-secondary font-medium hover:text-white">
+                    <a className="font-inter flex gap-x-1 items-center w-fit tracking-[0.06em] text-secondary font-medium hover:text-white">
                       complete payments
                       <Icon
                         icon="ant-design:arrow-right-outlined"
