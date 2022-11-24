@@ -33,48 +33,13 @@ export const WebNavigation = ({ viewHeaderonAuth }) => {
 
   return (
     <>
-      <StyledHeader className="shadow-md fixed top-0 left-0 z-50">
-        <div className="w-full flex items-center justify-between">
+      <StyledHeader className="shadow-md fixed top-0 left-0 z-50 flex items-center justify-center">
+        <div className="w-full max-w-[70rem]">
           <div>
             <Logo width={180} height={50} />
           </div>
-          {viewHeaderonAuth ? (
-            ""
-          ) : (
-            <div className="flex gap-4 items-center">
-              <div className="hidden lg:flex items-center gap-x-5">
-                <Navitems />
-              </div>
-              <button
-                className="lg:hidden flex"
-                onClick={() => toggleMobileMenu()}
-              >
-                <Icon
-                  icon="ci:menu-alt-02"
-                  color="#1f1839"
-                  width="32"
-                  height="32"
-                />
-              </button>
-            </div>
-          )}
         </div>
       </StyledHeader>
-      <>
-        {openMobileMenu && (
-          <>
-            <div
-              //   ref={mobileMenuRef}
-              className="w-full h-auto lg:hidden z-50 fixed bg-[#1f1839] 
-              border-4 transition-[.5s] border-[#dec918] top-[4.1rem] left-0"
-            >
-              <div className="flex flex-col gap-4 px-6 p-4">
-                <Navitems />
-              </div>
-            </div>
-          </>
-        )}
-      </>
     </>
   );
 };
