@@ -92,19 +92,19 @@ export const bottomdashboardLinks = [
 export const selectpaymentoptiondata = [
   {
     label: "school fees",
-    value: "schoolfees",
+    value: "3000000",
   },
   {
     label: "pta levy",
-    value: "ptalevy",
+    value: "800000",
   },
   {
     label: "book fees",
-    value: "bookfees",
+    value: "3500000",
   },
   {
     label: "logistics levy",
-    value: "logisticslevy",
+    value: "700000",
   },
 ];
 

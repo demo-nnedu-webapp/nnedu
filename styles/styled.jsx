@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Layout, Form, Checkbox, Tabs } from "antd";
+import { Layout, Form, Checkbox, Tabs, Input, Select } from "antd";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { Item } = Form;
@@ -103,4 +103,49 @@ export const CustomTabs = styled(Tabs)`
   .ant-tabs-tab-remove:focus {
     color: #1f1839;
   }
+`;
+
+export const CustomInput = styled(Input)`
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  outline: none;
+  font-weight: 500;
+  color: #1f1839;
+  box-shadow: none;
+  background-color: white;
+  width: 100%;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.06em;
+  border: ${(props) => (props.auth ? "2px solid #1f1839" : "none")};
+
+  &:hover {
+    border: ${(props) =>
+      props.auth ? "2px solid #1f1839" : "2px solid #dec918"};
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: ${(props) =>
+      props.auth ? "2px solid #1f1839" : "2px solid #dec918"};
+    box-shadow: none;
+
+    &:active {
+      border: ${(props) =>
+        props.auth ? "2px solid #1f1839" : "2px solid #dec918"};
+      box-shadow: none;
+    }
+
+    &:disabled {
+      background-color: #e8e8e8;
+    }
+  }
+`;
+
+export const CustomSelect = styled(Select)`
+  color: #1f1839;
+  font-family: montserrat;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  border: 1px solid #1f1839;
+  border-radius: 0.375rem;
 `;

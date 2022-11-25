@@ -1,24 +1,15 @@
 import { Icon } from "@iconify/react";
 import { Select } from "antd";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { selectpaymentoptiondata } from "../../data/data";
 
-const SelectStyled = styled(Select)`
-  color: #1f1839;
-  font-family: montserrat;
-  letter-spacing: 0.06em;
-  font-size: 14px;
-  border: 1px solid #1f1839;
-  border-radius: 0.375rem;
-`;
+import { useState } from "react";
+
 
 const CustomSelect = () => {
-  const { Option } = Select;
-
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
+  
 
   return (
     <>
