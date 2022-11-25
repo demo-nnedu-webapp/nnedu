@@ -3,9 +3,8 @@ import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
 import React, { useState } from "react";
-import { CustomInput } from "../../components/customInput/customInput";
 import { WebNavigation } from "../../components/navigation/nav";
-import { CustomCheckBox, CustomItem } from "../../styles/styled";
+import { CustomCheckBox, CustomItem, CustomInput } from "../../styles/styled";
 import { DefaultButton } from "../../components/customButton/defaultButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,6 +13,11 @@ function SignIn() {
   const { form } = useForm();
 
   const router = useRouter();
+
+  const onFinish = (values) => {
+    router.push("/dashboard");
+    console.log(values);
+  };
 
   return (
     <>
@@ -29,7 +33,12 @@ function SignIn() {
         <div className="h-full w-full flex items-center justify-center">
           <div className="w-full max-w-lg p-6 bg-primary h-[28rem] flex items-center justify-center flex-col">
             <div className="w-full max-w-sm">
-              <Form form={form} layout="vertical" className="w-full">
+              <Form
+                form={form}
+                layout="vertical"
+                className="w-full"
+                onFinish={onFinish}
+              >
                 <div className="w-full flex flex-col gap-y-8 gap-x-4">
                   <CustomItem
                     name="studentId"
@@ -62,7 +71,7 @@ function SignIn() {
                   </CustomItem>
 
                   <DefaultButton
-                    onClick={() => router.push("/dashboard")}
+                    type="submit"
                     className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]"
                   >
                     Login

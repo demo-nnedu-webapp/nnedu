@@ -3,9 +3,8 @@ import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
 import React, { useState } from "react";
-import { CustomInput } from "../components/customInput/customInput";
 import { WebNavigation } from "../components/navigation/nav";
-import { CustomCheckBox, CustomItem } from "../styles/styled";
+import { CustomItem, CustomInput } from "../styles/styled";
 import { DefaultButton } from "../components/customButton/defaultButton";
 
 function Forgotpassword() {
