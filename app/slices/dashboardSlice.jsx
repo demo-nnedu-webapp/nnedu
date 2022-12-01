@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   sidebar: false,
   modal: false,
+  paymentHistorydata: {},
+  loader: false,
 };
 
 const DashboardReducer = createSlice({
@@ -21,9 +23,24 @@ const DashboardReducer = createSlice({
     hideModal: (state) => {
       state.modal = false;
     },
+    paymentData: (state) => {
+      state.paymentHistorydata = {};
+    },
+    showLoader: (state) => {
+      state.loader = true;
+    },
+    hideLoader: (state) => {
+      state.loader = false;
+    },
   },
 });
 
-export const { showSidebar, hideSidebar, showModal, hideModal } =
-  DashboardReducer.actions;
+export const {
+  showSidebar,
+  hideSidebar,
+  showModal,
+  hideModal,
+  showLoader,
+  hideLoader,
+} = DashboardReducer.actions;
 export default DashboardReducer.reducer;

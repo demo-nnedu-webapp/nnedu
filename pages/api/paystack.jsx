@@ -1,13 +1,18 @@
-import React from "react";
-import { usePaystackPayment } from "react-paystack";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import { RestLink } from "apollo-link-rest";
 
-const randomnumber = Math.floor(Math.random() * 9000 + 1000) + 1;
+const restLink = new RestLink({ uri: "https://api.paystack.co" });
 
-console.log(randomnumber);
+export const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: restLink,
+  headers: {
+    Authorization: "Bearer sk_test_80eaa41b94f3664ac379e240498f3824a2bf4b18",
+  },
+});
 
-const config = {
-  reference: `NNSS${randomnumber}`,
-  email: "seyi.oyebamiji@gmail.com",
-  amount: "",
-  publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLICKEYS,
-};
+const query = gql`
+  query GetTransactions {
+    
+  }
+`;
