@@ -86,7 +86,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="w-full mt-12">
-            <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] uppercase text-[#1f1839]">
+            <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] capitalize text-[#1f1839]">
               General
             </h2>
             <div className="w-full mt-4">
