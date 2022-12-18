@@ -2,11 +2,13 @@ import { Icon } from "@iconify/react";
 import Head from "next/head";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { DefaultButton } from "../components/customButton/defaultButton";
 import WebLayout from "../components/layout/layout";
 import { schoolData } from "../data/data";
 
 export default function Home() {
+
   return (
     <div>
       <Head>
