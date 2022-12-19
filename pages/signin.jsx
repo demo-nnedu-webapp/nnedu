@@ -1,22 +1,45 @@
 import { Icon } from "@iconify/react";
-import { Form } from "antd";
+import { Form, notification } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
 import React, { useState } from "react";
-import { WebNavigation } from "../../components/navigation/nav";
-import { CustomCheckBox, CustomItem, CustomInput } from "../../styles/styled";
-import { DefaultButton } from "../../components/customButton/defaultButton";
+import { WebNavigation } from "../components/navigation/nav";
+import { CustomCheckBox, CustomItem, CustomInput } from "../styles/styled";
+import { DefaultButton } from "../components/customButton/defaultButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { supaClient } from "../lib/supabase";
 
 function SignIn() {
   const { form } = useForm();
 
   const router = useRouter();
 
-  const onFinish = (values) => {
-    router.push("/dashboard");
+  const onFinish = async (values) => {
     console.log(values);
+    try {
+      const res = await supaClient.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+      const { data, error } = res;
+      if (data.user.email.length === 0) {
+        notification.open({
+          description: error.name,
+          message: error.message,
+        });
+      } else {
+        notification.success({
+          message: "Login Successful",
+          duration: 1.5,
+        });
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 3000);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -38,18 +61,19 @@ function SignIn() {
                 layout="vertical"
                 className="w-full"
                 onFinish={onFinish}
+                autoComplete="off"
               >
                 <div className="w-full flex flex-col gap-y-8 gap-x-4">
                   <CustomItem
-                    name="studentId"
+                    name="email"
                     rules={[
                       {
                         required: false,
-                        message: "please enter studentId",
+                        message: "please enter email",
                       },
                     ]}
                   >
-                    <CustomInput type="text" placeholder="student id" />
+                    <CustomInput type="email" placeholder="email" />
                   </CustomItem>
 
                   <CustomItem

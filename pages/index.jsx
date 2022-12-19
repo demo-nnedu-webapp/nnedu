@@ -2,11 +2,15 @@ import { Icon } from "@iconify/react";
 import Head from "next/head";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { DefaultButton } from "../components/customButton/defaultButton";
 import WebLayout from "../components/layout/layout";
 import { schoolData } from "../data/data";
 
-export default function Home() {
+export default function Home({ user }) {
+
+  // console.log(user);
+
   return (
     <div>
       <Head>
@@ -45,7 +49,7 @@ export default function Home() {
               {schoolData.map((i, index) => {
                 return (
                   <Link
-                    href={`${i.location}/signin`}
+                    href={`/signin`}
                     key={index}
                     passhref
                     legacyBehavior
