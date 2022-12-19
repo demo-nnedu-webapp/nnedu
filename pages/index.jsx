@@ -9,7 +9,7 @@ import { schoolData } from "../data/data";
 
 export default function Home({ user }) {
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <div>
