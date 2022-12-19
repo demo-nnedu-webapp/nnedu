@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 import { supaClient } from "../lib/supabase";
 
 function SignIn() {
-  // console.log(user);
   const { form } = useForm();
 
   const router = useRouter();
