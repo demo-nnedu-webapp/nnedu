@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   useEffect(() => {
     setUser(supaClient.auth.getUser());
-    supaClient.auth.onAuthStateChange((_event, session) => {
+    supaClient.auth.onAuthStateChange((_event, user) => {
       setUser(user);
     });
   }, []);

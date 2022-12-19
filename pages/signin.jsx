@@ -18,25 +18,28 @@ function SignIn() {
 
   const onFinish = async (values) => {
     console.log(values);
-    const { data, error } = await supaClient.auth.signInWithPassword({
-      email: values.email,
-      password: values.password,
-    });
-    console.log(data, error);
-    const { user } = data;
-    console.log(user);
-    if (user.email === values.email) {
-      notification.success({
-        message: "Login Successful",
-        duration: 1.5,
+    try {
+      const res = await supaClient.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
       });
-      setTimeout(() => {
-        router.push("/dashboard");
-      }, 3000);
-    } else {
-      notification.error({
-        message: error,
-      });
+      const { data, error } = res;
+      if (data.user.email.length === 0) {
+        notification.open({
+          description: error.name,
+          message: error.message,
+        });
+      } else {
+        notification.success({
+          message: "Login Successful",
+          duration: 1.5,
+        });
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 3000);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
