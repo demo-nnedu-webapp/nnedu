@@ -8,21 +8,11 @@ import { DefaultButton } from "../components/customButton/defaultButton";
 import { WebNavigation } from "../components/navigation/nav";
 import { CustomCheckBox, CustomInput, CustomItem } from "../styles/styled";
 import { supaClient } from "../lib/supabase";
-import { useEffect } from "react";
 
-function SignUp({ user }) {
-  console.log(user);
+function SignUp() {
   const [showPassword, setShowPasssword] = useState(false);
 
   const router = useRouter();
-
-  // useEffect(() => {
-  //   if (user === null) {
-  //     router.push("/signin");
-  //   } else {
-  //     router.push("/dashboard");
-  //   }
-  // }, []); //TODO::: comeback to this
 
   const { form } = useForm();
 

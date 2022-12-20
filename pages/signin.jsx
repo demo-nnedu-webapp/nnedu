@@ -9,8 +9,14 @@ import { DefaultButton } from "../components/customButton/defaultButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { supaClient } from "../lib/supabase";
+import { useDispatch, useSelector } from "react-redux";
+import { sessionStore } from "../app/slices/authSlice";
 
 function SignIn() {
+  const storeSession = useSelector((state) => state.auth.sessionData);
+  
+  const dispatch = useDispatch()
+
   const { form } = useForm();
 
   const router = useRouter();
@@ -33,6 +39,7 @@ function SignIn() {
           message: "Login Successful",
           duration: 1.5,
         });
+        dispatch(sessionStore(data.user))
         setTimeout(() => {
           router.push("/dashboard");
         }, 3000);
