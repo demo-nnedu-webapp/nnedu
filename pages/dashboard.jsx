@@ -12,10 +12,15 @@ import { useEffect } from "react";
 function Dashboard() {
   const getSession = useSelector((state) => state.auth.sessionData);
 
+  console.log(`GetSession is : ${getSession}`);
+
   const router = useRouter();
 
   useEffect(() => {
-    if (!getSession) {
+    if (Object.keys(getSession).length === 0) {
+      alert(
+        "You are currently not logged in \n you would be redirected back to signin page"
+      );
       router.replace("/signin");
     }
   }, []);
