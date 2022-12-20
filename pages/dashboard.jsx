@@ -4,7 +4,6 @@ import Link from "next/link";
 import React from "react";
 import DashboardLayout from "../components/layout/dashboardLayout";
 import { dashboardLinks, bottomdashboardLinks } from "../data/data";
-import LoadingScreen from "../components/loaderscreen/loadingscreen";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
