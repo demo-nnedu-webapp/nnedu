@@ -16,9 +16,10 @@ function Forgotpassword() {
     try {
       const res = await supaClient.auth.resetPasswordForEmail(values.email);
       const { data, error } = res;
-      if (!data) {
+      if (!(data && values.email)) {
         notification.error({
-          message: error.message,
+          message: "Error",
+          description: error.message,
         });
       } else {
         notification.success({
