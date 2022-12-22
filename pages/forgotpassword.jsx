@@ -1,14 +1,36 @@
 import { Icon } from "@iconify/react";
-import { Form } from "antd";
+import { Form, notification } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
 import React, { useState } from "react";
 import { WebNavigation } from "../components/navigation/nav";
 import { CustomItem, CustomInput } from "../styles/styled";
 import { DefaultButton } from "../components/customButton/defaultButton";
+import { supaClient } from "../lib/supabase";
 
 function Forgotpassword() {
   const { form } = useForm();
+
+  const onFinish = async (values) => {
+    console.log(values);
+    try {
+      const res = await supaClient.auth.resetPasswordForEmail(values.email);
+      const { data, error } = res;
+      if (!(data && values.email)) {
+        notification.error({
+          message: "Error",
+          description: error.message,
+        });
+      } else {
+        notification.success({
+          message: "Check your mailbox",
+          description: "Password request sent to your mailbox",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -24,21 +46,26 @@ function Forgotpassword() {
         <div className="h-full w-full flex items-center justify-center">
           <div className="w-full max-w-lg p-6 bg-primary h-64 flex items-center justify-center flex-col">
             <div className="w-full max-w-sm">
-              <Form form={form} layout="vertical" className="w-full">
+              <Form
+                form={form}
+                layout="vertical"
+                className="w-full"
+                onFinish={onFinish}
+                autoComplete="off"
+              >
                 <div className="w-full flex flex-col gap-y-8 gap-x-4">
                   <CustomItem
-                    name="schoolmail"
+                    name="email"
                     rules={[
                       {
-                        required: false,
-                        message: "please enter school email",
+                        required: true,
+                        message: "please enter email address",
                       },
                     ]}
                   >
                     <CustomInput
-                      name="schoolemail"
                       type="email"
-                      placeholder="school email address"
+                      placeholder="enter your email address"
                     />
                   </CustomItem>
 

@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import Head from "next/head";
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { DefaultButton } from "../components/customButton/defaultButton";
 import WebLayout from "../components/layout/layout";
 import { schoolData } from "../data/data";
@@ -44,12 +45,7 @@ export default function Home() {
             <div className="grid grid-cols-2 w-full gap-6 lg:gap-4 md:grid-cols-3 justify-items-center place-items-center lg:grid-cols-4">
               {schoolData.map((i, index) => {
                 return (
-                  <Link
-                    href={`${i.location}/signin`}
-                    key={index}
-                    passhref
-                    legacyBehavior
-                  >
+                  <Link href={`/signin`} key={index} passhref legacyBehavior>
                     <a className="flex flex-col items-center">
                       <div>
                         <Image
