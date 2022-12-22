@@ -1,19 +1,8 @@
 import styled from "styled-components";
 import { Layout, Form, Checkbox, Tabs, Input, Select } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 const { Item } = Form;
-
-export const StyledHeader = styled(Header)`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  background-color: white;
-  padding: 0px 20px;
-
-  @media (min-width: 1024px) {
-   padding: 0px 50px;
-`;
 
 export const StyledContent = styled(Content)`
   width: 100%;
@@ -116,7 +105,8 @@ export const CustomInput = styled(Input)`
   width: 100%;
   font-family: Montserrat, sans-serif;
   letter-spacing: 0.06em;
-  border: ${(props) => (props.auth ? "2px solid #1f1839" : "none")};
+  border: ${(props) =>
+    props.auth ? "2px solid #1f1839" : "2px solid #1f1839"};
 
   &:hover {
     border: ${(props) =>

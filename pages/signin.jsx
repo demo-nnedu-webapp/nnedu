@@ -105,7 +105,7 @@ function SignIn() {
                     type="submit"
                     className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]"
                   >
-                    Login
+                    Log in
                   </DefaultButton>
                 </div>
               </Form>
