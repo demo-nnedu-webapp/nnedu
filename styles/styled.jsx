@@ -105,7 +105,8 @@ export const CustomInput = styled(Input)`
   width: 100%;
   font-family: Montserrat, sans-serif;
   letter-spacing: 0.06em;
-  border: ${(props) => (props.auth ? "2px solid #1f1839" : "none")};
+  border: ${(props) =>
+    props.auth ? "2px solid #1f1839" : "2px solid #1f1839"};
 
   &:hover {
     border: ${(props) =>
