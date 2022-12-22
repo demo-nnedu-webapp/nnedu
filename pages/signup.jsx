@@ -18,19 +18,22 @@ function SignUp() {
 
   const onFinish = async (values) => {
     console.log(values);
-    const { data, error } = await supaClient.auth.signUp({
-      email: values.email,
-      password: values.password,
-      options: {
-        data: {
-          firstname: values.firstname,
-          lastname: values.lastname,
-          dob: values.dob,
-          class: values.class,
+    try {
+      const res = await supaClient.auth.signUp({
+        email: values.email,
+        password: values.password,
+        options: {
+          data: {
+            firstname: values.firstname,
+            lastname: values.lastname,
+            dob: values.dob,
+            class: values.class,
+          },
         },
-      },
-    });
-    console.log(data, error);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {

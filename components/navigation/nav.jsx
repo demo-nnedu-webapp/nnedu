@@ -1,9 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Logo } from "../logo/Logo";
-import { StyledHeader } from "../../styles/styled";
-import { Navitems } from "./navigationItems/navItems";
-import { Icon } from "@iconify/react";
-import Link from "next/link";
 
 export const WebNavigation = ({ viewHeaderonAuth }) => {
   const initialState = false;
@@ -33,13 +29,16 @@ export const WebNavigation = ({ viewHeaderonAuth }) => {
 
   return (
     <>
-      <StyledHeader className="shadow-md fixed top-0 left-0 z-50 flex items-center justify-center">
+      <nav
+        className="shadow-md w-full bg-white py-3 px-5 md:px-[50px] 
+      fixed top-0 left-0 z-50 flex items-center justify-center"
+      >
         <div className="w-full max-w-[70rem]">
-          <div>
+          <div className="w-fit flex items-center justify-between">
             <Logo width={180} height={50} />
           </div>
         </div>
-      </StyledHeader>
+      </nav>
     </>
   );
 };
