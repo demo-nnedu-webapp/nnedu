@@ -8,9 +8,8 @@ import { hideSidebar, showSidebar } from "../../app/slices/dashboardSlice";
 import { Icon } from "@iconify/react";
 
 const DashboardNav = () => {
-
   const SideBar = useSelector((state) => state.dashboard.sidebar);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const toggeSidebar = () => {
     if (SideBar === false) {
@@ -21,7 +20,10 @@ const DashboardNav = () => {
   };
 
   return (
-    <StyledHeader className="shadow-md z-50 fixed top-0 left-0">
+    <nav
+      className="shadow-md w-full bg-white py-0 px-5 md:px-[50px] 
+      fixed top-0 left-0 z-50 flex items-center justify-center"
+    >
       <div className="w-full flex items-center py-4 justify-between">
         <Logo width={180} height={50} />
         <div className="flex items-center gap-4">
@@ -42,7 +44,7 @@ const DashboardNav = () => {
           </div>
         </div>
       </div>
-    </StyledHeader>
+    </nav>
   );
 };
 

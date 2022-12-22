@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import "../styles/globals.css";
-import "antd/dist/antd.min.css";
+import "antd/dist/antd.css";
 import { store } from "../app/store";
 
 function MyApp({ Component, pageProps }) {
