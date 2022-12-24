@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import { Form, notification } from "antd";
-import { useForm } from "antd/lib/form/Form";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -14,7 +13,7 @@ function SignUp() {
 
   const router = useRouter();
 
-  const { form } = useForm();
+  const [form] = Form.useForm();
 
   const onFinish = async (values) => {
     console.log(values);
@@ -31,6 +30,7 @@ function SignUp() {
           },
         },
       });
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +68,7 @@ function SignUp() {
                       name="firstname"
                       rules={[
                         {
-                          required: false,
+                          required: true,
                           message: "please enter firstname",
                         },
                       ]}
@@ -80,7 +80,7 @@ function SignUp() {
                       name="lastname"
                       rules={[
                         {
-                          required: false,
+                          required: true,
                           message: "please enter lastname",
                         },
                       ]}
@@ -94,7 +94,7 @@ function SignUp() {
                       name="dob"
                       rules={[
                         {
-                          required: false,
+                          required: true,
                           message: "please enter date values",
                         },
                       ]}
@@ -106,7 +106,7 @@ function SignUp() {
                       name="class"
                       rules={[
                         {
-                          required: false,
+                          required: true,
                           message: "please enter class",
                         },
                       ]}
@@ -120,7 +120,7 @@ function SignUp() {
                       name="email"
                       rules={[
                         {
-                          required: false,
+                          required: true,
                           message: "please enter email",
                         },
                       ]}
