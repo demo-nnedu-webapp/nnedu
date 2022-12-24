@@ -14,8 +14,8 @@ import { sessionStore } from "../app/slices/authSlice";
 
 function SignIn() {
   const storeSession = useSelector((state) => state.auth.sessionData);
-  
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
 
   const { form } = useForm();
 
@@ -29,23 +29,26 @@ function SignIn() {
         password: values.password,
       });
       const { data, error } = res;
-      if (data.user.email.length === 0) {
-        notification.open({
-          description: error.name,
-          message: error.message,
-        });
-      } else {
+      if (data.user) {
         notification.success({
           message: "Login Successful",
           duration: 1.5,
         });
-        dispatch(sessionStore(data.user))
+        dispatch(sessionStore(data.user));
         setTimeout(() => {
           router.push("/dashboard");
         }, 3000);
+      } else {
+        notification.error({
+          message: "Error",
+          description: "Invalid login credentials",
+        });
       }
     } catch (error) {
-      console.log(error);
+      notification.error({
+        message: "Error",
+        error: error.message,
+      });
     }
   };
 
