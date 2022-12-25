@@ -1,9 +1,30 @@
 import { Icon } from "@iconify/react";
+import { supaClient } from "../../lib/supabase";
 import { Avatar, Dropdown, Menu } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeSession } from "../../app/slices/authSlice";
 
 const DropdownProfile = () => {
+  const getSession = useSelector((state) => state.auth.sessionData);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const Signout = async () => {
+    try {
+      const { error } = await supaClient.auth.signOut();
+      if (!error) {
+        dispatch(removeSession(getSession));
+        router.replace("/signin");
+      }
+      console.log(error.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const menu = (
     <Menu
       items={[
@@ -25,8 +46,8 @@ const DropdownProfile = () => {
         },
         {
           label: (
-            <Link href="/" className="font-bold">
-              LogOut
+            <Link href="#" className="font-medium" onClick={() => Signout()}>
+              Log Out
             </Link>
           ),
           icon: (
