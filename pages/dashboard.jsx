@@ -11,7 +11,7 @@ import { useEffect } from "react";
 function Dashboard() {
   const getSession = useSelector((state) => state.auth.sessionData);
 
-  console.log(`GetSession is : ${getSession}`);
+  console.log(getSession);
 
   const router = useRouter();
 
@@ -38,6 +38,9 @@ function Dashboard() {
           <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
             Dashboard
           </h2>
+          <p className="font-montserrat tracking-[0.065em] text-primary capitalize font-medium">
+            Welcome {getSession.user_metadata.lastname}
+          </p>
           <div className="w-full mt-4">
             <div className="w-full flex flex-col md:flex-row gap-4">
               {/* component one */}
@@ -51,7 +54,7 @@ function Dashboard() {
                     based on their major activities
                   </p>
 
-                  <Link href="#" passHref legacyBehavior>
+                  <Link href="/profile" passHref legacyBehavior>
                     <a className="font-inter flex gap-x-1 items-center w-fit tracking-[0.06em] text-secondary font-medium hover:text-primary">
                       update profile
                       <Icon
