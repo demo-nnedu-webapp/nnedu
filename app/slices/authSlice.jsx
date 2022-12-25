@@ -18,8 +18,12 @@ const AuthReducer = createSlice({
     sessionStore: (state, action) => {
       state.sessionData = action.payload;
     },
+    removeSession: (state, action) => {
+      state.sessionData = {};
+    },
   },
 });
 
-export const { isLoggedin, loggedIn, sessionStore } = AuthReducer.actions;
+export const { isLoggedin, loggedIn, sessionStore, removeSession } =
+  AuthReducer.actions;
 export default AuthReducer.reducer;
