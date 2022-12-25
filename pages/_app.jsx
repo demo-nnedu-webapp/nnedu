@@ -1,17 +1,16 @@
 import { Provider } from "react-redux";
 import "../styles/globals.css";
 import "antd/dist/antd.css";
-import { store } from "../app/store";
-import { useEffect, useState } from "react";
-import { supaClient } from "../lib/supabase";
+import { persistor, store } from "../app/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 function MyApp({ Component, pageProps }) {
-
-
   return (
     <>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <PersistGate loading={null} persistor={persistor}>
+          <Component {...pageProps} />
+        </PersistGate>
       </Provider>
     </>
   );
