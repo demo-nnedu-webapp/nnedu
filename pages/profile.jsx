@@ -8,9 +8,14 @@ import { DefaultButton } from "../components/customButton/defaultButton";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { columndata, promotionData } from "../data/data";
+import { useSelector } from "react-redux";
 
 function Profile() {
   const date = new Date().toJSON().slice(0, 10);
+
+  const getSession = useSelector((state) => state.auth.sessionData);
+
+  console.log(getSession);
 
   return (
     <>
@@ -53,8 +58,8 @@ function Profile() {
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
                         First name
                       </h4>
-                      <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Ciroma
+                      <p className="font-montserrat font-normal tracking-[0.06em] text-sm capitalize">
+                        {getSession.user_metadata?.firstname}
                       </p>
                     </div>
 
@@ -62,17 +67,17 @@ function Profile() {
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
                         Last name
                       </h4>
-                      <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Abdullahi
+                      <p className="font-montserrat font-normal tracking-[0.06em] text-sm capitalize">
+                        {getSession.user_metadata?.lastname}
                       </p>
                     </div>
 
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        Maiden name
+                        Middle name
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Adelaide
+                        {getSession.user_metadata?.middlename}
                       </p>
                     </div>
                   </div>
@@ -83,7 +88,7 @@ function Profile() {
                         Date of Birth
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        {date}
+                        {getSession.user_metadata?.dob}
                       </p>
                     </div>
 
@@ -154,7 +159,7 @@ function Profile() {
                       Class
                     </h4>
                     <p className="tracking-[0.06em] text-sm font-montserrat font-normal">
-                      SS3
+                      {getSession.user_metadata?.class}
                     </p>
                   </div>
 

@@ -139,3 +139,65 @@ export const CustomSelect = styled(Select)`
   border: 1px solid #1f1839;
   border-radius: 0.375rem;
 `;
+
+export const StyledAvatar = styled.div`
+  max-width: 960px;
+
+  .avatar-upload {
+    position: relative;
+    max-width: 205px;
+    .avatar-edit {
+      position: absolute;
+      right: 12px;
+      z-index: 1;
+      top: 10px;
+      input {
+        display: none;
+        + label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          margin: 0;
+          border-radius: 10%;
+          background: #1f1839;
+          color: white;
+          border: 1px solid transparent;
+          box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+          cursor: pointer;
+          font-weight: normal;
+          transition: all 0.2s ease-in-out;
+
+          &:after {
+            content: "";
+            font-family: "montserrat";
+            color: white;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            margin: auto;
+          }
+        }
+      }
+    }
+    .avatar-preview {
+      width: 192px;
+      height: 192px;
+      position: relative;
+      border-radius: 100%;
+      border: 6px solid #f8f8f8;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+      > div {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+`;
