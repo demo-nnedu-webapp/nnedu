@@ -34,7 +34,7 @@ function Profile() {
           <div className="bg-white w-full mt-4 p-4 border-t-4 border-primary shadow-md">
             <div className="p-4">
               <div className="w-full grid lg:grid-cols-6 gap-5">
-                <div className="col-span-2 flex justify-start lg:justify-center">
+                <div className="lg:col-span-2 flex justify-center">
                   <div className="flex flex-col items-center gap-4 w-fit">
                     <div className="bg-secondary w-fit py-1 px-1.5">
                       <p className="font-inter font-semibold tracking-[0.06em]">
@@ -52,7 +52,7 @@ function Profile() {
                   </div>
                 </div>
 
-                <div className="col-span-4 grid grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="lg:col-span-4 grid grid-cols-2 place-items-center lg:grid-cols-3 gap-4">
                   <div className="flex flex-col gap-y-5 justify-between">
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
