@@ -39,7 +39,7 @@ function Dashboard() {
             Dashboard
           </h2>
           <p className="font-montserrat tracking-[0.065em] text-primary capitalize font-medium">
-            Welcome {getSession.user_metadata?.lastname}
+            Welcome {getSession.user_metadata?.firstname}
           </p>
           <div className="w-full mt-4">
             <div className="w-full flex flex-col md:flex-row gap-4">
