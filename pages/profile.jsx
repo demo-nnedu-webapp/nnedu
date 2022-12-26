@@ -52,7 +52,7 @@ function Profile() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 grid grid-cols-2 place-items-center lg:grid-cols-3 gap-4">
+                <div className="lg:col-span-4 grid grid-cols-2 place-items-center place-content-center lg:grid-cols-3 gap-4">
                   <div className="flex flex-col gap-y-5 justify-between">
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
@@ -94,10 +94,10 @@ function Profile() {
 
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        Nationality
+                        Gender
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Nigerian
+                        Unknown
                       </p>
                     </div>
 
@@ -114,16 +114,16 @@ function Profile() {
                   <div className="flex flex-col gap-y-5 justify-between">
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        Place of Birth
+                        Nationality
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Unknown
+                        Nigerian
                       </p>
                     </div>
 
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        Gender
+                        State of Origin
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
                         Unknown
