@@ -1,13 +1,13 @@
 import { Layout } from "antd";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { CustomSider, StyledContent } from "../../styles/styled";
 import { DashboardNav } from "../navigation/dashboardNav";
 import { useSelector } from "react-redux";
 import { DashboardNavItems } from "../navigation/navigationItems/navItems";
+import LoadingScreen from "../loaderscreen/loadingscreen";
 
 const DashboardLayout = ({ children }) => {
   const collapsed = useSelector((state) => state.dashboard.sidebar);
-  
 
   return (
     <>
@@ -24,7 +24,7 @@ const DashboardLayout = ({ children }) => {
             </div>
           </CustomSider>
           <StyledContent className="lg:ml-[250px] z-10 text-black bg-dashboardbg h-full mt-16 p-6">
-            {children}
+            <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
           </StyledContent>
         </Layout>
       </Layout>
