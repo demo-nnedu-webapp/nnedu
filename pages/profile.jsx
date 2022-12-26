@@ -139,7 +139,7 @@ function Profile() {
         <div className="mt-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             {/* Academic Details */}
-            <div className="lg:col-span-2">
+            {/* <div className="lg:col-span-2">
               <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
                 Academic details
               </h2>
@@ -191,10 +191,10 @@ function Profile() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* Academic Details */}
 
-            <div className="lg:col-span-3">
+            {/* <div className="lg:col-span-3">
               <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
                 Promotion history
               </h2>
@@ -213,11 +213,11 @@ function Profile() {
                   </DefaultButton>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <div className="mt-12">
+        {/* <div className="mt-12">
           <div className="grid grid-cols-1 gap-y-6 md:grid-cols-5 md:gap-4">
             <div className="lg:col-span-2">
               <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
@@ -276,16 +276,16 @@ function Profile() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="mt-12">
+        {/* <div className="mt-12">
           <h2 className="font-semibold text-2xl font-inter tracking-[0.06em] text-primary">
             Documents
           </h2>
           <div className="mt-4">
             <CustomTable columndata={[]} datasource={[]} selectData />
           </div>
-        </div>
+        </div> */}
       </DashboardLayout>
     </>
   );
