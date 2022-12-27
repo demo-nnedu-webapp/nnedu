@@ -1,4 +1,3 @@
-import { Form } from "antd";
 import Head from "next/head";
 import React from "react";
 import { CustomAvatar } from "../components/customAvatar/customAvatar";
@@ -9,13 +8,60 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { columndata, promotionData } from "../data/data";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { supaClient } from "../lib/supabase";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 function Profile() {
-  const date = new Date().toJSON().slice(0, 10);
-
+  const [profileDetails, setProfileDetails] = useState({
+    id: "",
+    email: "",
+    rawdata: {
+      avatarurl: "",
+      firstname: "",
+      lastname: "",
+      middlename: "Seyi",
+      dob: "",
+      nationality: "",
+      pob: "",
+      religion: "",
+      gender: "",
+    },
+  });
   const getSession = useSelector((state) => state.auth.sessionData);
+  const router = useRouter()
 
-  console.log(getSession);
+  const fetchUserDetails = async () => {
+    try {
+      const res = await supaClient
+        .from("users")
+        .select()
+        .eq("email", getSession.email);
+      console.log(res.data);
+      setProfileDetails({
+        ...profileDetails,
+        id: res.data[0]?.id || "",
+        email: res.data[0]?.email || "",
+        rawdata: res.data[0]?.raw_user_meta_data || {},
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (Object.keys(getSession).length === 0) {
+      alert(
+        "You are currently not logged in \n you would be redirected back to signin page"
+      );
+      router.replace("/signin");
+    }
+
+    fetchUserDetails();
+  }, []);
+
+  console.log(profileDetails);
 
   return (
     <>
@@ -45,21 +91,19 @@ function Profile() {
                       </p>
                     </div>
                     <div className="w-full flex justify-center">
-                      <Form>
-                        <CustomAvatar />
-                      </Form>
+                      <CustomAvatar />
                     </div>
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 grid grid-cols-2 place-items-center place-content-center lg:grid-cols-3 gap-4">
+                <div className="lg:col-span-4 grid grid-cols-2 place-items-center lg:grid-cols-3 gap-4">
                   <div className="flex flex-col gap-y-5 justify-between">
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
                         First name
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm capitalize">
-                        {getSession.user_metadata?.firstname}
+                        {profileDetails.rawdata.firstname}
                       </p>
                     </div>
 
@@ -68,7 +112,7 @@ function Profile() {
                         Last name
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm capitalize">
-                        {getSession.user_metadata?.lastname}
+                        {profileDetails.rawdata.lastname}
                       </p>
                     </div>
 
@@ -77,7 +121,7 @@ function Profile() {
                         Middle name
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        {getSession.user_metadata?.middlename}
+                        {profileDetails.rawdata.middlename}
                       </p>
                     </div>
                   </div>
@@ -88,16 +132,16 @@ function Profile() {
                         Date of Birth
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        {getSession.user_metadata?.dob}
+                        {profileDetails.rawdata.dob}
                       </p>
                     </div>
 
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        Gender
+                        Nationality
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Unknown
+                        {profileDetails.rawdata.nationality}
                       </p>
                     </div>
 
@@ -106,7 +150,7 @@ function Profile() {
                         Religion
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Unknown
+                        {profileDetails.rawdata.religion}
                       </p>
                     </div>
                   </div>
@@ -114,19 +158,19 @@ function Profile() {
                   <div className="flex flex-col gap-y-5 justify-between">
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        Nationality
+                        Place of Birth
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Nigerian
+                        {profileDetails.rawdata.pob}
                       </p>
                     </div>
 
                     <div className="flex flex-col">
                       <h4 className="capitalize font-inter tracking-[0.06em] font-medium text-base">
-                        State of Origin
+                        Gender
                       </h4>
                       <p className="font-montserrat font-normal tracking-[0.06em] text-sm">
-                        Unknown
+                        {profileDetails.rawdata.gender}
                       </p>
                     </div>
                   </div>
