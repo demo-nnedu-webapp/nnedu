@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Form, notification } from "antd";
+import { Form, notification, Steps } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -10,6 +10,32 @@ import { supaClient } from "../lib/supabase";
 
 function SignUp() {
   const [showPassword, setShowPasssword] = useState(false);
+
+  const [current, setCurrent] = useState(0);
+
+  const { Step } = Steps;
+
+  const forms = [
+    {
+      title: "First",
+      content: "First-content",
+    },
+    {
+      title: "Second",
+      content: "Second-content",
+    },
+    {
+      title: "Last",
+      content: "Last-content",
+    },
+  ];
+
+  const next = () => {
+    setCurrent(current + 1);
+  };
+  const prev = () => {
+    setCurrent(current - 1);
+  };
 
   const router = useRouter();
 
@@ -228,6 +254,7 @@ function SignUp() {
                   </DefaultButton>
                 </div>
               </Form>
+              ;
             </div>
           </div>
         </div>
