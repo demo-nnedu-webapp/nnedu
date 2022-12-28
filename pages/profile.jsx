@@ -16,49 +16,49 @@ import { useRouter } from "next/router";
 function Profile() {
   const [profileDetails, setProfileDetails] = useState({
     id: "",
-    email: "",
+    email: "someone@gmail.com",
     rawdata: {
-      avatarurl: "",
-      firstname: "",
-      lastname: "",
-      middlename: "Seyi",
-      dob: "",
-      nationality: "",
-      pob: "",
-      religion: "",
-      gender: "",
+      avatarurl: "null",
+      firstname: "User",
+      lastname: "Student",
+      middlename: "US",
+      dob: "null",
+      nationality: "null",
+      pob: "null",
+      religion: "null",
+      gender: "null",
     },
   });
-  const getSession = useSelector((state) => state.auth.sessionData);
+  // const getSession = useSelector((state) => state.auth.sessionData);
   const router = useRouter()
 
-  const fetchUserDetails = async () => {
-    try {
-      const res = await supaClient
-        .from("users")
-        .select()
-        .eq("email", getSession.email);
-      console.log(res.data);
-      setProfileDetails({
-        ...profileDetails,
-        id: res.data[0]?.id || "",
-        email: res.data[0]?.email || "",
-        rawdata: res.data[0]?.raw_user_meta_data || {},
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const fetchUserDetails = async () => {
+  //   try {
+  //     const res = await supaClient
+  //       .from("users")
+  //       .select()
+  //       .eq("email", getSession.email);
+  //     console.log(res.data);
+  //     setProfileDetails({
+  //       ...profileDetails,
+  //       id: res.data[0]?.id || "",
+  //       email: res.data[0]?.email || "",
+  //       rawdata: res.data[0]?.raw_user_meta_data || {},
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   useEffect(() => {
-    if (Object.keys(getSession).length === 0) {
-      alert(
-        "You are currently not logged in \n you would be redirected back to signin page"
-      );
-      router.replace("/signin");
-    }
+    // if (Object.keys(getSession).length === 0) {
+    //   alert(
+    //     "You are currently not logged in \n you would be redirected back to signin page"
+    //   );
+    //   router.replace("/signin");
+    // }
 
-    fetchUserDetails();
+    // fetchUserDetails();
   }, []);
 
   console.log(profileDetails);
