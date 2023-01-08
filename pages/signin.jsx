@@ -22,35 +22,34 @@ function SignIn() {
   const router = useRouter();
 
   const onFinish = async (values) => {
-    router.push("/dashboard");
     console.log(values);
-    // try {
-    //   const res = await supaClient.auth.signInWithPassword({
-    //     email: values.email,
-    //     password: values.password,
-    //   });
-    //   const { data, error } = res;
-    //   if (data.user) {
-    //     notification.success({
-    //       message: "Login Successful",
-    //       duration: 1.5,
-    //     });
-    //     dispatch(sessionStore(data.user));
-    //     setTimeout(() => {
-    //       router.push("/dashboard");
-    //     }, 3000);
-    //   } else {
-    //     notification.error({
-    //       message: "Error",
-    //       description: "Invalid login credentials",
-    //     });
-    //   }
-    // } catch (error) {
-    //   notification.error({
-    //     message: "Error",
-    //     error: error.message,
-    //   });
-    // }
+    try {
+      const res = await supaClient.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+      const { data, error } = res;
+      if (data.user) {
+        notification.success({
+          message: "Login Successful",
+          duration: 1.5,
+        });
+        dispatch(sessionStore(data.user));
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 3000);
+      } else {
+        notification.error({
+          message: "Error",
+          description: "Invalid login credentials",
+        });
+      }
+    } catch (error) {
+      notification.error({
+        message: "Error",
+        error: error.message,
+      });
+    }
   };
 
   return (

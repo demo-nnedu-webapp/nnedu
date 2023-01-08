@@ -1,66 +1,98 @@
-import { Icon } from "@iconify/react";
-import { Form, notification, Steps } from "antd";
+import { Form, message, notification, Result, Steps } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DefaultButton } from "../components/customButton/defaultButton";
 import { WebNavigation } from "../components/navigation/nav";
-import { CustomCheckBox, CustomInput, CustomItem } from "../styles/styled";
+import { StyledSteps } from "../styles/styled";
 import { supaClient } from "../lib/supabase";
+import { ComplexDetails, StudentDetails } from "../components/forms/forms";
+import { useStepsForm } from "sunflower-antd";
+import Countries from "countries-api";
 
 function SignUp() {
-  const [showPassword, setShowPasssword] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const [current, setCurrent] = useState(0);
+  const [countries, setCountries] = useState();
+
+  useEffect(() => {
+    setCountries(Countries.findByRegion("Africa"));
+  }, []);
+
+  console.log(countries);
 
   const { Step } = Steps;
 
-  const forms = [
-    {
-      title: "First",
-      content: "First-content",
+  const { form, current, gotoStep, submit } = useStepsForm({
+    async submit(values) {
+      const {
+        avatar,
+        fname,
+        mname,
+        lname,
+        email,
+        password,
+        dob,
+        classes,
+        arm,
+        nationality,
+        placeofbirth,
+        religion,
+        gender,
+      } = values;
+      console.log(
+        avatar,
+        fname,
+        mname,
+        lname,
+        email,
+        password,
+        dob,
+        classes,
+        arm,
+        nationality,
+        placeofbirth,
+        religion,
+        gender
+      );
+      try {
+        const res = await supaClient.auth.signUp({
+          email: email,
+          password: password,
+          options: {
+            data: {
+              avatarUrl: avatar,
+              firstname: fname,
+              lastname: lname,
+              dob: dob,
+              class: classes,
+              arm: arm,
+              nationality: nationality,
+              placeofbirth: placeofbirth,
+              religion: religion,
+              gender: gender,
+            },
+          },
+        });
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
+      await new Promise((r) => setTimeout(r, 1000));
+      return "ok";
     },
-    {
-      title: "Second",
-      content: "Second-content",
-    },
-    {
-      title: "Last",
-      content: "Last-content",
-    },
-  ];
+  });
 
   const next = () => {
-    setCurrent(current + 1);
+    gotoStep(current + 1);
   };
   const prev = () => {
-    setCurrent(current - 1);
+    gotoStep(current - 1);
   };
+
+  const forms = [<StudentDetails />, <ComplexDetails country={countries} />];
 
   const router = useRouter();
-
-  const [form] = Form.useForm();
-
-  const onFinish = async (values) => {
-    console.log(values);
-    try {
-      const res = await supaClient.auth.signUp({
-        email: values.email,
-        password: values.password,
-        options: {
-          data: {
-            firstname: values.firstname,
-            lastname: values.lastname,
-            dob: values.dob,
-            class: values.class,
-          },
-        },
-      });
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const onFinishFailed = (errorInfo) => {
     console.log(errorInfo);
@@ -75,186 +107,104 @@ function SignUp() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
       </div>
-      <div className="h-full flex mt-20 min-h-screen items-center justify-center flex-col w-full">
+      <div className="h-full flex min-h-screen items-center justify-center flex-col w-full">
         <WebNavigation viewHeaderonAuth={true} />
-        <div className="h-full w-full flex items-center justify-center">
-          <div className="w-full max-w-lg py-10 px-6 md:p-6 h-full bg-primary md:h-[40rem] flex items-center justify-center flex-col">
-            <div className="w-full max-w-sm">
+        <div className="h-full w-full flex items-center mt-12 justify-center">
+          <div
+            className="w-full max-w-lg py-10 px-6 md:p-6 h-full bg-white shadow-md flex 
+          items-center justify-center flex-col"
+          >
+            <div className="w-full max-w-md">
+              <StyledSteps current={current} size="small">
+                <Step
+                  key="step1"
+                  title={
+                    <p className="text-primary font-medium font-inter tracking-[0.065em]">
+                      Step 1
+                    </p>
+                  }
+                />
+                <Step
+                  key="step2"
+                  title={
+                    <p className="text-primary font-medium font-inter tracking-[0.065em]">
+                      Step 2
+                    </p>
+                  }
+                />
+              </StyledSteps>
               <Form
                 form={form}
-                layout="vertical"
-                className="w-full"
-                onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
-                autoComplete="off"
+                layout="vertical"
               >
-                <div className="w-full flex flex-col gap-6 md:gap-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <CustomItem
-                      name="firstname"
-                      rules={[
-                        {
-                          required: true,
-                          message: "please enter firstname",
-                        },
-                      ]}
-                    >
-                      <CustomInput type="text" placeholder="firstname" />
-                    </CustomItem>
-
-                    <CustomItem
-                      name="lastname"
-                      rules={[
-                        {
-                          required: true,
-                          message: "please enter lastname",
-                        },
-                      ]}
-                    >
-                      <CustomInput type="text" placeholder="lastname" />
-                    </CustomItem>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <CustomItem
-                      name="dob"
-                      rules={[
-                        {
-                          required: true,
-                          message: "please enter date values",
-                        },
-                      ]}
-                    >
-                      <CustomInput type="date" placeholder="date of birth" />
-                    </CustomItem>
-
-                    <CustomItem
-                      name="class"
-                      rules={[
-                        {
-                          required: true,
-                          message: "please enter class",
-                        },
-                      ]}
-                    >
-                      <CustomInput type="text" placeholder="class / arm" />
-                    </CustomItem>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-4">
-                    <CustomItem
-                      name="email"
-                      rules={[
-                        {
-                          required: true,
-                          message: "please enter email",
-                        },
-                      ]}
-                    >
-                      <CustomInput type="email" placeholder="email" />
-                    </CustomItem>
-                  </div>
-
-                  {/* password */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <CustomItem
-                      name="password"
-                      rules={[
-                        {
-                          required: true,
-                          message: "please enter password",
-                        },
-                      ]}
-                    >
-                      <div className="flex w-full">
-                        <CustomInput
-                          type={showPassword ? "text" : "password"}
-                          placeholder="password"
-                          min={6}
-                          max={8}
-                        />
-                        <i
-                          onClick={() => {
-                            setShowPasssword(!showPassword);
-                          }}
-                          className="absolute cursor-pointer right-0 top-[0.675rem] mr-3"
-                        >
-                          {showPassword ? (
-                            <Icon
-                              icon="mdi:eye-lock"
-                              className="text-2xl text-secondary"
-                            />
-                          ) : (
-                            <Icon
-                              icon="mdi:eye-settings"
-                              className="text-2xl text-primary"
-                            />
-                          )}
-                        </i>
-                      </div>
-                    </CustomItem>
-
-                    <CustomItem
-                      name="confirmPassword"
-                      dependencies={["password"]}
-                      rules={[
-                        {
-                          required: true,
-                          message: "please confirm password",
-                        },
-                        ({ getFieldValue }) => ({
-                          validator(_, value) {
-                            if (!value || getFieldValue("password") === value) {
-                              return Promise.resolve();
+                <div>
+                  <div className="my-4 bg-white">{forms[current]}</div>
+                  <div className="w-full flex justify-between">
+                    {current > 0 && (
+                      <DefaultButton
+                        className={
+                          submitted
+                            ? `hidden`
+                            : `py-1.5 px-3 rounded-md bg-primary text-white font-medium
+                             font-montserrat tracking-[0.065em]`
+                        }
+                        onClick={() => prev()}
+                      >
+                        Previous
+                      </DefaultButton>
+                    )}
+                    {current < forms.length - 1 && (
+                      <DefaultButton
+                        className="py-1.5 px-3 rounded-md border-[1px] border-primary text-primary
+             hover:bg-secondary font-medium font-montserrat tracking-[0.065em]"
+                        onClick={() => next()}
+                      >
+                        Next
+                      </DefaultButton>
+                    )}
+                    {current === forms.length - 1 && (
+                      <DefaultButton
+                        className="py-1.5 px-3 rounded-md bg-secondary text-primary font-medium
+             font-montserrat tracking-[0.065em]"
+                        onClick={() => {
+                          submit().then((result) => {
+                            if (result === "ok") {
+                              setSubmitted(true);
+                              gotoStep(current + 1);
                             }
-                            return Promise.reject(
-                              new Error(
-                                notification.error({
-                                  message:
-                                    "The two passwords that you entered do not match!",
-                                })
-                              )
-                            );
-                          },
-                        }),
-                      ]}
-                    >
-                      <CustomInput
-                        type="password"
-                        placeholder="confirmpassword"
-                      />
-                    </CustomItem>
+                          });
+                        }}
+                      >
+                        Done
+                      </DefaultButton>
+                    )}
+                    {current === 2 && (
+                      <div className="flex items-center justify-center w-full">
+                        <Result
+                          status="success"
+                          title="Submit is succeed!"
+                          extra={
+                            <>
+                              <DefaultButton
+                                className="py-1.5 px-3 rounded-md bg-secondary text-primary font-medium
+                              font-montserrat tracking-[0.065em]"
+                                onClick={() => {
+                                  form.resetFields();
+                                  setSubmitted(false);
+                                  gotoStep(0);
+                                }}
+                              >
+                                Check your email
+                              </DefaultButton>
+                            </>
+                          }
+                        />
+                      </div>
+                    )}
                   </div>
-
-                  <CustomItem
-                    name="agreement"
-                    valuePropName="checked"
-                    rules={[
-                      {
-                        validator: (_, value) =>
-                          value
-                            ? Promise.resolve()
-                            : Promise.reject(
-                                new Error("Accept agreement before continuing")
-                              ),
-                      },
-                    ]}
-                  >
-                    <CustomCheckBox className="font-montserrat tracking-[0.06em]">
-                      User data would be collected for profession purposes,
-                      please tick the checkbox
-                    </CustomCheckBox>
-                  </CustomItem>
-
-                  <DefaultButton
-                    type="submit"
-                    className="w-full bg-secondary text-primary py-3 px-4 rounded-md font-montserrat font-semibold tracking-[0.06em]"
-                  >
-                    Sign up
-                  </DefaultButton>
                 </div>
               </Form>
-              ;
             </div>
           </div>
         </div>

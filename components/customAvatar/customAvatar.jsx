@@ -12,18 +12,6 @@ const CustomAvatar = () => {
 
   const handleUpload = async (e) => {
     setPhotoState(URL.createObjectURL(e.target.files[0]));
-
-    // let file;
-
-    // const { data, error } = await supaClient.storage
-    //   .from("images")
-    //   .upload("public/" + photoState.name, file);
-
-    // if (data) {
-    //   console.log(data);
-    // } else if (error) {
-    //   console.log(error);
-    // }
   };
 
   console.log(photoState);

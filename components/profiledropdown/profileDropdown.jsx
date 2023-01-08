@@ -13,17 +13,16 @@ const DropdownProfile = () => {
   const router = useRouter();
 
   const Signout = async () => {
-    router.replace("/signin");
-    // try {
-    //   const { error } = await supaClient.auth.signOut();
-    //   if (!error) {
-    //     dispatch(removeSession(getSession));
-    //     router.replace("/signin");
-    //   }
-    //   console.log(error.message);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const { error } = await supaClient.auth.signOut();
+      if (!error) {
+        dispatch(removeSession(getSession));
+        router.replace("/signin");
+      }
+      console.log(error.message);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const menu = (

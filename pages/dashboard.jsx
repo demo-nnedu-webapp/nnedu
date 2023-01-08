@@ -9,19 +9,19 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 function Dashboard() {
-  // const getSession = useSelector((state) => state.auth.sessionData);
+  const getSession = useSelector((state) => state.auth.sessionData);
 
-  // console.log(getSession);
+  console.log(getSession);
 
   const router = useRouter();
 
   useEffect(() => {
-    // if (Object.keys(getSession).length === 0) {
-    //   alert(
-    //     "You are currently not logged in \n you would be redirected back to signin page"
-    //   );
-    //   router.replace("/signin");
-    // }
+    if (Object.keys(getSession).length === 0) {
+      alert(
+        "You are currently not logged in \n you would be redirected back to signin page"
+      );
+      router.replace("/signin");
+    }
   }, []);
 
   return (
@@ -39,8 +39,7 @@ function Dashboard() {
             Dashboard
           </h2>
           <p className="font-montserrat tracking-[0.065em] text-primary capitalize font-medium">
-            Welcome User
-            {/* {getSession.user_metadata?.firstname} */}
+            Welcome {getSession.user_metadata?.firstname}
           </p>
           <div className="w-full mt-4">
             <div className="w-full flex flex-col md:flex-row gap-4">

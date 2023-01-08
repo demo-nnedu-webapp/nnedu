@@ -197,3 +197,51 @@ export const promotionData = [
     toclass: "SS1 1 Siri",
   },
 ];
+
+export const classOptions = [
+  {
+    value: "jss1",
+  },
+  {
+    value: "jss2",
+  },
+  {
+    value: "jss3",
+  },
+  {
+    value: "sss1",
+  },
+  {
+    value: "sss2",
+  },
+  {
+    value: "sss3",
+  },
+];
+
+export const classArm = [
+  {
+    value: "ekun",
+  },
+  {
+    value: "ekpe",
+  },
+  {
+    value: "damisa",
+  },
+  {
+    value: "siri",
+  },
+  {
+    value: "ayam",
+  },
+  {
+    value: "agu",
+  },
+  {
+    value: "barama",
+  },
+  {
+    value: "eriomi",
+  },
+];

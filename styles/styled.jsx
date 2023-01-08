@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Layout, Form, Checkbox, Tabs, Input, Select } from "antd";
+import { Layout, Form, Checkbox, Tabs, Input, Select, Steps } from "antd";
 
 const { Content, Footer, Sider } = Layout;
 const { Item } = Form;
@@ -199,5 +199,35 @@ export const StyledAvatar = styled.div`
         background-position: center;
       }
     }
+  }
+`;
+
+export const StyledSteps = styled(Steps)`
+  color: white;
+
+  & .ant-steps-item {
+    background-color: white;
+  }
+
+  .ant-steps-item-icon {
+    background-color: #dec918;
+    border: 1px solid #1f1839;
+  }
+
+  .ant-steps-item-finish {
+    .ant-steps-item-icon .ant-steps-icon {
+      color: #1f1839;
+    }
+  }
+
+  .ant-steps-item-process {
+    .ant-steps-item-container .ant-steps-item-icon {
+      background-color: #1f1839;
+      border: 1px solid #dec918;
+    }
+  }
+
+  .ant-steps-item-title {
+    color: #1f1839;
   }
 `;
